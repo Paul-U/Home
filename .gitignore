@@ -13,6 +13,7 @@
 !/.selected_editor
 
 !/.emacs.d/
+!/.fonts/
 
 !/.vimrc
 !/.vim
