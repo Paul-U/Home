@@ -1,0 +1,22 @@
+# Ignore all files.
+/*
+/.*
+
+# Set considered files.
+!/.gitignore
+!/.gitattributes
+
+!/.bash_aliases
+!/.bash_colour.example
+!/.bash_profile
+!/.bashrc
+!/.selected_editor
+
+!/.emacs.d/
+
+!/.vimrc
+!/.vim
+!/.viminfo
+!/_vim
+!/_vimrc
+!/_viminfo
