@@ -2,7 +2,7 @@
 ;; Org-mode Settings
 ;;
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/org-mode/lisp/")
+(require 'org-install)
 
 ;; キーバインドの設定
 (define-key global-map "\C-cl" 'org-store-link)
@@ -30,9 +30,9 @@
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
 
-(setq org-export-latex-coding-system 'utf-8)
-(setq org-export-latex-date-format "%Y-%m-%d")
-(setq org-export-latex-classes nil)
+(setq org-latex-coding-system 'utf-8)
+(setq org-latex-date-format "%Y-%m-%d")
+(setq org-latex-classes nil)
 (add-to-list 'org-latex-classes
   '("jsarticle"
     "\\documentclass[a4j]{jsarticle}
@@ -59,7 +59,6 @@
 
 
 (require 'org-capture)
-(require 'org-install)
 (setq org-startup-truncated nil)
 (setq org-return-follows-link t)
 (setq org-directory "~/org/")
@@ -67,14 +66,14 @@
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file+headline nil "Tasks")
-         "** TODO %?\n   %i\n   %a\n   %t")
+         "** TODO %?\n   %i\n   %a\n   %T")
         ("f" "Fix" entry
          (file+headline nil "Tasks")
-         "** TODO %?   :fix:\n   %i\n   %a\n   %t")
+         "** TODO %?   :fix:\n   %i\n   %a\n   %T")
 	("n" "Note" entry
 	 (file+headline nil "Note")
-	 "** Note %?\n   :fix:\n   %i\n   %a\n   %t")
+	 "** Note %?\n   :fix:\n   %i\n   %a\n   %T")
         ("i" "Idea" entry
          (file+headline nil "New Ideas")
-         "** %?\n   %i\n   %a\n   %t")))
+         "** %?\n   %i\n   %a\n   %T")))
 (global-set-key (kbd "C-c c") 'org-capture)

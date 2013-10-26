@@ -1,5 +1,5 @@
-
 (setq frame-title-format "%b")
+(tool-bar-mode 0)
 
 ;; ------------------------------------------------------------------------
 ;; @ fringe
@@ -67,19 +67,9 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ color-theme
-(add-to-list 'load-path "~/.emacs.d/elpa/color-theme-20080305.834/")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-simple-1)
-
-;; ------------------------------------------------------------------------
-;; @ package manager
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
 
 ;; ------------------------------------------------------------------------
 ;; @ Encoding
@@ -105,17 +95,17 @@
 ;; │　　　　　　　　　　　　　罫線                            │
 ;; └─────────────────────────────┘
 
-
-(set-face-attribute 'default nil
-		    :family "Migu 1M"
-		    :height 120
-		    :foundry "outline"
-		    )
-(set-fontset-font nil
-		  'japanese-jisx0208
-		  (font-spec :family "Meiryo"))
-(setq face-font-rescale-alist '(("Meiryo" . 1.00)))   
-
+(when window-system
+  (set-face-attribute 'default nil
+		      :family "Migu 1M"
+		      :height 120
+		      :foundry "outline"
+		      )
+  (set-fontset-font nil
+		    'japanese-jisx0208
+		    (font-spec :family "Meiryo"))
+  (setq face-font-rescale-alist '(("Meiryo" . 1.00)))   
+  )
 
 ;; ------------------------------------------------------------------------
 ;; @ Misc
@@ -124,3 +114,5 @@
 
 (setq suggest-key-bindings t)
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(setq completion-ignore-case t)
