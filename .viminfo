@@ -7,10 +7,22 @@
 
 # hlsearch on (H) or off (h):
 ~H
+# Last Search Pattern:
+~MSle0~/rrbconfig
+
 # Command Line History (newest to oldest):
 :q
+:160
+:set number
+:w
+:wq
+:q!
 
 # Search String History (newest to oldest):
+?/rrbconfig
+?/ServerTokens
+?/Server
+?/servertokens
 
 # Expression History (newest to oldest):
 
@@ -19,15 +31,221 @@
 # Input Line History (newest to oldest):
 
 # Registers:
+"1	LINE	0
+	dropbox.py start
+"2	LINE	0
+	export PATH="~/bin":$PATH
+"3	LINE	0
+	# fi
+"4	LINE	0
+	#   INFOPATH="${HOME}/info:${INFOPATH}"
+"5	LINE	0
+	# if [ -d "${HOME}/info" ]; then
+"6	LINE	0
+	# Set INFOPATH so it includes users' private info if it exists
+"7	LINE	0
+	
+"8	LINE	0
+	# fi
+"9	LINE	0
+	#   MANPATH="${HOME}/man:${MANPATH}"
+""-	CHAR	0
+	 
 
 # File marks:
-'0  8  0  ~/Labo/.gitignore
+'0  18  0  ~/evernote-mode.patch
+'1  82  0  ~/evernote-mode.patch
+'2  4  0  ~/evernote-mode.patch
+'3  183  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+'4  1821  19  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+'5  1  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode
+'6  20  55  ~/evernote-mode.patch
+'7  78  0  /etc/rc.d/init.d/dropbox
+'8  1705  33  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+'9  293  36  ~/.emacs.d/elpa/evernote-mode-0.41/ruby/bin/enclient.rb
 
 # Jumplist (newest first):
+-'  18  0  ~/evernote-mode.patch
+-'  82  0  ~/evernote-mode.patch
+-'  4  0  ~/evernote-mode.patch
+-'  183  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  1318  18  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  1821  24  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  20  0  ~/evernote-mode.patch
+-'  1705  19  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  1  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode
+-'  1  0  ~/evernote-mode.patch
+-'  78  0  /etc/rc.d/init.d/dropbox
+-'  1  0  /etc/rc.d/init.d/dropbox
+-'  229  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  1  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+-'  293  36  ~/.emacs.d/elpa/evernote-mode-0.41/ruby/bin/enclient.rb
+-'  1  0  ~/.emacs.d/elpa/evernote-mode-0.41/ruby/bin/enclient.rb
+-'  34  0  ~/.rvm/log/1383213794_ruby-1.9.2-p320/update_system.log
+-'  1  0  ~/.rvm/log/1383213794_ruby-1.9.2-p320/update_system.log
+-'  1  4  ~/Dropbox/brand/script.sh
+-'  7  3  ~/.bash_profile
+-'  2  0  ~/.bashrc
+-'  4  0  ~/.bashrc
+-'  1  0  ~/.bash_profile
+-'  5  0  ~/.bashrc
+-'  1  0  ~/.bashrc
+-'  18  5  ~/.gitignore
+-'  17  0  ~/.gitignore
+-'  1  0  ~/.gitignore
+-'  16  57  ~/.emacs.d/init.el
+-'  1  0  ~/.emacs.d/init.el
+-'  44  13  /etc/httpd/conf/httpd.conf
+-'  28  25  /etc/httpd/conf/httpd.conf
+-'  1  0  /etc/httpd/conf/httpd.conf
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
 -'  8  0  ~/Labo/.gitignore
 -'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  44  13  /etc/httpd/conf/httpd.conf
+-'  28  25  /etc/httpd/conf/httpd.conf
+-'  1  0  /etc/httpd/conf/httpd.conf
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  16  57  ~/.emacs.d/init.el
+-'  1  0  ~/.emacs.d/init.el
+-'  44  13  /etc/httpd/conf/httpd.conf
+-'  28  25  /etc/httpd/conf/httpd.conf
+-'  1  0  /etc/httpd/conf/httpd.conf
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  44  13  /etc/httpd/conf/httpd.conf
+-'  28  25  /etc/httpd/conf/httpd.conf
+-'  1  0  /etc/httpd/conf/httpd.conf
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  8  0  ~/Labo/.gitignore
+-'  1  0  ~/Labo/.gitignore
+-'  16  57  ~/.emacs.d/init.el
+-'  1  0  ~/.emacs.d/init.el
+-'  44  13  /etc/httpd/conf/httpd.conf
+-'  28  25  /etc/httpd/conf/httpd.conf
+-'  1  0  /etc/httpd/conf/httpd.conf
+-'  10  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
 
 # History of marks within files (newest to oldest):
+
+> ~/evernote-mode.patch
+	"	18	0
+	.	20	56
+	+	20	56
+
+> ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
+	"	183	0
+	^	1705	46
+	.	1705	45
+	+	1705	45
+
+> ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode
+	"	1	0
+
+> /etc/rc.d/init.d/dropbox
+	"	78	0
+	^	94	0
+	.	95	0
+	+	95	0
+
+> ~/.emacs.d/elpa/evernote-mode-0.41/ruby/bin/enclient.rb
+	"	293	36
+	^	293	37
+	.	293	36
+	+	292	10
+	+	293	36
+
+> ~/.rvm/log/1383213794_ruby-1.9.2-p320/update_system.log
+	"	34	0
+
+> ~/Dropbox/brand/script.sh
+	"	1	4
+	^	1	5
+	.	1	4
+	+	1	4
+
+> ~/.bash_profile
+	"	7	3
+	^	7	4
+	.	7	3
+	+	10	15
+	+	1	0
+	+	4	0
+	+	5	0
+	+	6	0
+	+	7	32
+	+	9	1
+	+	10	0
+	+	7	3
+
+> ~/.bashrc
+	"	2	0
+	.	2	0
+	+	5	0
+	+	2	0
+
+> ~/.gitignore
+	"	18	5
+	^	18	6
+	.	18	5
+	+	14	0
+	+	17	9
+	+	18	5
+
+> ~/.emacs.d/init.el
+	"	16	57
+	.	16	57
+	+	16	57
+
+> /etc/httpd/conf/httpd.conf
+	"	44	13
+	.	44	13
+	+	44	13
+
+> ~/.ssh/authorized_keys
+	"	10	0
+	^	10	0
+	.	9	29
+	+	9	29
 
 > ~/Labo/.gitignore
 	"	8	0

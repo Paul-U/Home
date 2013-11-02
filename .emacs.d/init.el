@@ -13,7 +13,7 @@
 
 (defvar installing-package-list
   '(
-    anything color-theme init-loader twittering-mode w3m org csv-mode session
+    anything color-theme init-loader twittering-mode w3m csv-mode session
     ))
 
 (let ((not-installed (loop for x in installing-package-list
@@ -24,13 +24,19 @@
     (dolist (pkg not-installed)
         (package-install pkg))))
 
-
+(unless (file-exists-p "~/.emacs.d/site-lisp")
+  (make-directory "~/.emacs.d/site-lisp"))
 (let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
   (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))
 
 (let ((default-directory (expand-file-name "~/.emacs.d/elpa")))
+  (add-to-list 'load-path default-directory)
+  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+      (normal-top-level-add-subdirs-to-load-path)))
+
+(let ((default-directory (expand-file-name "/usr/share/emacs/site-lisp")))
   (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))

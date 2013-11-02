@@ -5,15 +5,17 @@
 # Set considered files.
 !/.gitignore
 !/.gitattributes
+!/README.org
 
 !/.bash_aliases
 !/.bash_colour.example
 !/.bash_profile
 !/.bashrc
-!/.selected_editor
 
 !/.emacs.d/
 !/.fonts/
+!/.inputrc
+!/.skk
 
 !/.vimrc
 !/.vim

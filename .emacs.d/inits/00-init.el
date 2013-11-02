@@ -1,4 +1,4 @@
-(setq frame-title-format "%b")
+(setq frame-title-format (format "%%b - %s-%s@%s" invocation-name emacs-version system-name))
 (tool-bar-mode 0)
 
 ;; ------------------------------------------------------------------------
@@ -96,16 +96,35 @@
 ;; └─────────────────────────────┘
 
 (when window-system
-  (set-face-attribute 'default nil
-		      :family "Migu 1M"
-		      :height 120
-		      :foundry "outline"
-		      )
-  (set-fontset-font nil
-		    'japanese-jisx0208
-		    (font-spec :family "Meiryo"))
-  (setq face-font-rescale-alist '(("Meiryo" . 1.00)))   
-  )
+ (set-default-font "Inconsolata:pixelsize=16:spacing=0")
+ (set-face-font 'variable-pitch "Inconsolata")
+ (set-fontset-font (frame-parameter nil 'font)
+		   'japanese-jisx0208
+		   '("Takaoゴシック" . "unicode-bmp")
+		   )
+)
+
+;; ------------------------------------------------------------------------
+;; @ Multiple Cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-*") 'mc/mark-all-like-this)
+
+;; ------------------------------------------------------------------------
+;; @ Current Line Highlight
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background  "#98FB98"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+(global-hl-line-mode)
 
 ;; ------------------------------------------------------------------------
 ;; @ Misc
@@ -114,5 +133,8 @@
 
 (setq suggest-key-bindings t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(global-set-key "\C-h" 'delete-backward-char)
 
 (setq completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(setq read-file-name-completion-ignore-case t)
