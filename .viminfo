@@ -11,11 +11,12 @@
 ~MSle0~/rrbconfig
 
 # Command Line History (newest to oldest):
+:wq
 :q
+:undo
 :160
 :set number
 :w
-:wq
 :q!
 
 # Search String History (newest to oldest):
@@ -32,39 +33,57 @@
 
 # Registers:
 "1	LINE	0
-	dropbox.py start
+	emacs $@
 "2	LINE	0
-	export PATH="~/bin":$PATH
+	files="$@"
 "3	LINE	0
-	# fi
+	files=${files:-/dev/zero}
 "4	LINE	0
-	#   INFOPATH="${HOME}/info:${INFOPATH}"
+	alias emacs="emacsclient -e '~/.emacs.d/init.d/10-font.el' -c -n -a ''"
 "5	LINE	0
-	# if [ -d "${HOME}/info" ]; then
-"6	LINE	0
-	# Set INFOPATH so it includes users' private info if it exists
-"7	LINE	0
 	
+"6	LINE	0
+	fi
+"7	LINE	0
+		/usr/local/bin/emacs --daemon
 "8	LINE	0
-	# fi
+		echo "Starting server."
 "9	LINE	0
-	#   MANPATH="${HOME}/man:${MANPATH}"
+	else
 ""-	CHAR	0
-	 
+	'
 
 # File marks:
-'0  18  0  ~/evernote-mode.patch
-'1  82  0  ~/evernote-mode.patch
-'2  4  0  ~/evernote-mode.patch
-'3  183  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
-'4  1821  19  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
-'5  1  0  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode
-'6  20  55  ~/evernote-mode.patch
-'7  78  0  /etc/rc.d/init.d/dropbox
-'8  1705  33  ~/.emacs.d/elpa/evernote-mode-0.41/evernote-mode.el
-'9  293  36  ~/.emacs.d/elpa/evernote-mode-0.41/ruby/bin/enclient.rb
+'0  10  66  ~/.bashrc
+'1  11  7  ~/.bashrc
+'2  12  69  ~/.bashrc
+'3  1  10  ~/.bashrc
+'4  9  0  ~/.bashrc
+'5  10  10  ~/.bashrc
+'6  10  28  ~/.bashrc
+'7  9  15  ~/.bashrc
+'8  2  25  ~/bin/invoke_emacs.sh
+'9  1  4  ~/bin/invoke_emacs.sh
 
 # Jumplist (newest first):
+-'  10  66  ~/.bashrc
+-'  11  0  ~/.bashrc
+-'  12  0  ~/.bashrc
+-'  1  0  ~/.bashrc
+-'  9  0  ~/.bashrc
+-'  2  25  ~/bin/invoke_emacs.sh
+-'  1  0  ~/bin/invoke_emacs.sh
+-'  3  0  ~/bin/invoke_emacs.sh
+-'  5  24  ~/.gitconfig
+-'  1  0  ~/.gitconfig
+-'  100  25  ~/.emacs.d/inits/00-init.el
+-'  98  0  ~/.emacs.d/inits/00-init.el
+-'  99  3  ~/.emacs.d/inits/00-init.el
+-'  137  0  ~/.emacs.d/inits/00-init.el
+-'  6  0  ~/.bashrc
+-'  14  0  ~/.bashrc
+-'  1  0  ~/.emacs.d/inits/00-init.el
+-'  4  0  ~/.bashrc
 -'  18  0  ~/evernote-mode.patch
 -'  82  0  ~/evernote-mode.patch
 -'  4  0  ~/evernote-mode.patch
@@ -85,11 +104,7 @@
 -'  1  0  ~/.rvm/log/1383213794_ruby-1.9.2-p320/update_system.log
 -'  1  4  ~/Dropbox/brand/script.sh
 -'  7  3  ~/.bash_profile
--'  2  0  ~/.bashrc
--'  4  0  ~/.bashrc
 -'  1  0  ~/.bash_profile
--'  5  0  ~/.bashrc
--'  1  0  ~/.bashrc
 -'  18  5  ~/.gitignore
 -'  17  0  ~/.gitignore
 -'  1  0  ~/.gitignore
@@ -149,23 +164,100 @@
 -'  1  0  ~/.ssh/authorized_keys
 -'  8  0  ~/Labo/.gitignore
 -'  1  0  ~/Labo/.gitignore
--'  8  0  ~/Labo/.gitignore
--'  1  0  ~/Labo/.gitignore
--'  10  0  ~/.ssh/authorized_keys
--'  1  0  ~/.ssh/authorized_keys
--'  8  0  ~/Labo/.gitignore
--'  1  0  ~/Labo/.gitignore
--'  8  0  ~/Labo/.gitignore
--'  1  0  ~/Labo/.gitignore
--'  16  57  ~/.emacs.d/init.el
--'  1  0  ~/.emacs.d/init.el
--'  44  13  /etc/httpd/conf/httpd.conf
--'  28  25  /etc/httpd/conf/httpd.conf
--'  1  0  /etc/httpd/conf/httpd.conf
--'  10  0  ~/.ssh/authorized_keys
--'  1  0  ~/.ssh/authorized_keys
 
 # History of marks within files (newest to oldest):
+
+> ~/.bashrc
+	"	10	66
+	^	10	67
+	.	10	67
+	+	6	0
+	+	4	0
+	+	6	0
+	+	6	26
+	+	14	0
+	+	6	0
+	+	9	0
+	+	9	23
+	+	14	0
+	+	9	8
+	+	11	0
+	+	10	75
+	+	8	0
+	+	7	12
+	+	9	0
+	+	9	11
+	+	9	2
+	+	9	0
+	+	9	14
+	+	9	0
+	+	9	15
+	+	10	51
+	+	10	61
+	+	10	28
+	+	10	7
+	+	10	5
+	+	10	8
+	+	10	7
+	+	10	18
+	+	10	0
+	+	10	0
+	+	10	27
+	+	9	0
+	+	10	0
+	+	10	0
+	+	10	0
+	+	11	2
+	+	12	56
+	+	2	0
+	+	1	10
+	+	12	29
+	+	9	0
+	+	12	69
+	+	9	0
+	+	10	0
+	+	10	0
+	+	10	0
+	+	11	0
+	+	12	0
+	+	10	67
+	+	10	10
+	+	11	0
+	+	10	0
+	+	11	7
+	+	10	76
+	+	11	0
+	+	10	67
+
+> ~/bin/invoke_emacs.sh
+	"	2	25
+	^	2	24
+	.	2	25
+	+	3	29
+	+	3	58
+	+	3	22
+	+	3	25
+	+	1	10
+	+	3	0
+	+	2	0
+	+	2	6
+	+	2	0
+	+	2	5
+	+	2	25
+
+> ~/.gitconfig
+	"	5	24
+	^	5	25
+	.	5	24
+	+	5	24
+
+> ~/.emacs.d/inits/00-init.el
+	"	100	25
+	^	100	26
+	.	100	25
+	+	99	16
+	+	98	0
+	+	100	25
 
 > ~/evernote-mode.patch
 	"	18	0
@@ -216,12 +308,6 @@
 	+	9	1
 	+	10	0
 	+	7	3
-
-> ~/.bashrc
-	"	2	0
-	.	2	0
-	+	5	0
-	+	2	0
 
 > ~/.gitignore
 	"	18	5

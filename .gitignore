@@ -12,6 +12,7 @@
 !/.bash_profile
 !/.bashrc
 
+!/bin
 !/.emacs.d/
 !/.fonts/
 !/.inputrc
@@ -19,7 +20,5 @@
 
 !/.vimrc
 !/.vim
-!/.viminfo
 !/_vim
 !/_vimrc
-!/_viminfo

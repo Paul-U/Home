@@ -24,23 +24,8 @@
     (dolist (pkg not-installed)
         (package-install pkg))))
 
-(unless (file-exists-p "~/.emacs.d/site-lisp")
-  (make-directory "~/.emacs.d/site-lisp"))
-(let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
-  (add-to-list 'load-path default-directory)
-  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-      (normal-top-level-add-subdirs-to-load-path)))
-
-(let ((default-directory (expand-file-name "~/.emacs.d/elpa")))
-  (add-to-list 'load-path default-directory)
-  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-      (normal-top-level-add-subdirs-to-load-path)))
-
-(let ((default-directory (expand-file-name "/usr/share/emacs/site-lisp")))
-  (add-to-list 'load-path default-directory)
-  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-      (normal-top-level-add-subdirs-to-load-path)))
+(load "~/.emacs.d/load-path.el")
 
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
-(init-loader-load "~/.emacs.d/inits")
+(init-loader-load "~/.emacs.d/init.d")
