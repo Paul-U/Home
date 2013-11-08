@@ -15,3 +15,4 @@
 
 (global-set-key (kbd "\C-xaa") 'anything)
 (global-set-key (kbd "\C-xaf") 'anything-filelist+)
+(global-set-key (kbd "\C-y") 'anything-show-kill-ring)

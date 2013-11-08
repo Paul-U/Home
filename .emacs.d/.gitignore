@@ -6,5 +6,6 @@
 
 !/.gitignore
 !/init*
+!/load-path.el
 
 *.elc

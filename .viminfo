@@ -13,11 +13,11 @@
 # Command Line History (newest to oldest):
 :wq
 :q
+:q!
 :undo
 :160
 :set number
 :w
-:q!
 
 # Search String History (newest to oldest):
 ?/rrbconfig
@@ -54,18 +54,28 @@
 	'
 
 # File marks:
-'0  10  66  ~/.bashrc
-'1  11  7  ~/.bashrc
-'2  12  69  ~/.bashrc
-'3  1  10  ~/.bashrc
-'4  9  0  ~/.bashrc
-'5  10  10  ~/.bashrc
-'6  10  28  ~/.bashrc
-'7  9  15  ~/.bashrc
-'8  2  25  ~/bin/invoke_emacs.sh
-'9  1  4  ~/bin/invoke_emacs.sh
+'0  1  4  ~/bin/.gitignore
+'1  10  0  ~/.emacs.d/.gitignore
+'2  1  0  /etc/yum.repos.d/rpmforge.repo
+'3  365  0  /etc/httpd/conf/httpd.conf
+'4  19  0  /etc/yum.repos.d/CentOS-Base.repo
+'5  66  4  ~/bin/ddns-update.pl
+'6  10  66  ~/.bashrc
+'7  11  7  ~/.bashrc
+'8  12  69  ~/.bashrc
+'9  1  10  ~/.bashrc
 
 # Jumplist (newest first):
+-'  1  4  ~/bin/.gitignore
+-'  10  0  ~/.emacs.d/.gitignore
+-'  1  0  ~/.emacs.d/.gitignore
+-'  1  0  /etc/yum.repos.d/rpmforge.repo
+-'  365  0  /etc/httpd/conf/httpd.conf
+-'  44  0  /etc/httpd/conf/httpd.conf
+-'  19  0  /etc/yum.repos.d/CentOS-Base.repo
+-'  1  0  /etc/yum.repos.d/CentOS-Base.repo
+-'  66  4  ~/bin/ddns-update.pl
+-'  1  0  ~/bin/ddns-update.pl
 -'  10  66  ~/.bashrc
 -'  11  0  ~/.bashrc
 -'  12  0  ~/.bashrc
@@ -110,7 +120,6 @@
 -'  1  0  ~/.gitignore
 -'  16  57  ~/.emacs.d/init.el
 -'  1  0  ~/.emacs.d/init.el
--'  44  13  /etc/httpd/conf/httpd.conf
 -'  28  25  /etc/httpd/conf/httpd.conf
 -'  1  0  /etc/httpd/conf/httpd.conf
 -'  10  0  ~/.ssh/authorized_keys
@@ -125,9 +134,6 @@
 -'  1  0  ~/Labo/.gitignore
 -'  8  0  ~/Labo/.gitignore
 -'  1  0  ~/Labo/.gitignore
--'  44  13  /etc/httpd/conf/httpd.conf
--'  28  25  /etc/httpd/conf/httpd.conf
--'  1  0  /etc/httpd/conf/httpd.conf
 -'  10  0  ~/.ssh/authorized_keys
 -'  1  0  ~/.ssh/authorized_keys
 -'  8  0  ~/Labo/.gitignore
@@ -142,9 +148,6 @@
 -'  1  0  ~/Labo/.gitignore
 -'  16  57  ~/.emacs.d/init.el
 -'  1  0  ~/.emacs.d/init.el
--'  44  13  /etc/httpd/conf/httpd.conf
--'  28  25  /etc/httpd/conf/httpd.conf
--'  1  0  /etc/httpd/conf/httpd.conf
 -'  10  0  ~/.ssh/authorized_keys
 -'  1  0  ~/.ssh/authorized_keys
 -'  8  0  ~/Labo/.gitignore
@@ -157,15 +160,49 @@
 -'  1  0  ~/Labo/.gitignore
 -'  8  0  ~/Labo/.gitignore
 -'  1  0  ~/Labo/.gitignore
--'  44  13  /etc/httpd/conf/httpd.conf
--'  28  25  /etc/httpd/conf/httpd.conf
--'  1  0  /etc/httpd/conf/httpd.conf
--'  10  0  ~/.ssh/authorized_keys
--'  1  0  ~/.ssh/authorized_keys
--'  8  0  ~/Labo/.gitignore
--'  1  0  ~/Labo/.gitignore
+-'  365  0  /etc/httpd/conf/httpd.conf
+-'  44  0  /etc/httpd/conf/httpd.conf
+-'  19  0  /etc/yum.repos.d/CentOS-Base.repo
+-'  1  0  /etc/yum.repos.d/CentOS-Base.repo
+-'  66  4  ~/bin/ddns-update.pl
 
 # History of marks within files (newest to oldest):
+
+> ~/bin/.gitignore
+	"	1	4
+	^	1	5
+	.	1	4
+	+	1	4
+
+> ~/.emacs.d/.gitignore
+	"	10	0
+	^	10	0
+	.	9	14
+	+	9	14
+
+> /etc/yum.repos.d/rpmforge.repo
+	"	1	0
+
+> /etc/httpd/conf/httpd.conf
+	"	365	0
+	.	44	13
+	+	44	13
+
+> /etc/yum.repos.d/CentOS-Base.repo
+	"	19	0
+	^	19	0
+	.	19	0
+	+	19	0
+
+> ~/bin/ddns-update.pl
+	"	66	4
+	^	66	5
+	.	21	46
+	+	21	43
+	+	24	43
+	+	21	47
+	+	24	47
+	+	21	46
 
 > ~/.bashrc
 	"	10	66
@@ -321,17 +358,3 @@
 	"	16	57
 	.	16	57
 	+	16	57
-
-> /etc/httpd/conf/httpd.conf
-	"	44	13
-	.	44	13
-	+	44	13
-
-> ~/.ssh/authorized_keys
-	"	10	0
-	^	10	0
-	.	9	29
-	+	9	29
-
-> ~/Labo/.gitignore
-	"	8	0

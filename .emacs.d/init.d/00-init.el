@@ -116,6 +116,5 @@
 (setq read-buffer-completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(require 'undo-tree)
+(global-undo-tree-mode)

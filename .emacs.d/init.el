@@ -14,6 +14,7 @@
 (defvar installing-package-list
   '(
     anything color-theme init-loader twittering-mode w3m csv-mode session
+	     undo-tree
     ))
 
 (let ((not-installed (loop for x in installing-package-list
