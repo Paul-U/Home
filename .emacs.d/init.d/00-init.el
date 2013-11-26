@@ -1,4 +1,6 @@
-(setq frame-title-format (format "%%b - %s-%s@%s" invocation-name emacs-version system-name))
+(setq frame-title-format
+      (format "%%b - %s-%s@%s"
+	      invocation-name emacs-version system-name))
 (tool-bar-mode 0)
 
 ;; ------------------------------------------------------------------------
@@ -6,8 +8,9 @@
 
 ;; バッファ中の行番号表示
 (global-linum-mode t)
-(set-face-attribute 'linum nil :height 0.8)
+(set-face-attribute 'linum nil :height 0.8 :foreground "#19F870")
 (setq linum-format "%4d")
+
 
 ;; ------------------------------------------------------------------------
 ;; @ modeline
@@ -66,12 +69,6 @@
 (setq delete-old-versions t)
 
 ;; ------------------------------------------------------------------------
-;; @ color-theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-simple-1)
-
-;; ------------------------------------------------------------------------
 ;; @ Encoding
 (set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8)
@@ -80,33 +77,26 @@
 (set-terminal-coding-system 'utf-8)
 
 
-
-;; ------------------------------------------------------------------------
-;; @ Multiple Cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-*") 'mc/mark-all-like-this)
-
 ;; ------------------------------------------------------------------------
 ;; @ Current Line Highlight
-(defface hlline-face
-  '((((class color)
-      (background dark))
-     (:background "dark slate gray"))
-    (((class color)
-      (background light))
-     (:background  "#98FB98"))
-    (t
-     ()))
-  "*Face used by hl-line.")
-(setq hl-line-face 'hlline-face)
-(global-hl-line-mode)
+;; (defface hlline-face
+;;   '((((class color)
+;;       (background dark))
+;;      (:background "dark slate gray"))
+;;     (((class color)
+;;       (background light))
+;;      (:background  "color-24"))
+;;     (t
+;;      ()))
+;;   "*Face used by hl-line.")
+;; (setq hl-line-face 'hlline-face)
+;; (global-hl-line-mode 0)
 
 ;; ------------------------------------------------------------------------
 ;; @ Misc
 (setq truncate-partial-width-windows nil)
 (show-paren-mode t)
+(menu-bar-mode 0)
 
 (setq suggest-key-bindings t)
 (fset 'yes-or-no-p 'y-or-n-p)
