@@ -22,3 +22,5 @@
 !/.vim
 !/_vim
 !/_vimrc
+/.viminfo
+/_viminfo
