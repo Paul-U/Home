@@ -108,3 +108,6 @@
 
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+(cua-mode t)
+(setq cua-enable-cua-keys nil)

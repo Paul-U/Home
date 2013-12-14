@@ -1,0 +1,48 @@
+\usepackage{fancyhdr}
+%
+%\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.6in}
+%
+\pagestyle{fancy}
+\makeatletter
+\lhead{\@title}
+\rhead{\@author}
+\makeatother
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+%
+\makeatletter
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\@subtitle{}
+\def\belong#1{\gdef\@belong{#1}}
+\def\@belong{}
+\makeatother
+\renewcommand{\today}{\number\year/\number\month/\number\day}
+%
+\makeatletter
+\renewcommand{\maketitle}{
+\begingroup
+{\bfseries\large\@title{}}\hfill\@date
+\ifx\@subtitle\empty\else\par\hspace{2em}\@subtitle\fi
+\begin{flushright}
+ \ifx\@belong\empty\else\@belong{}\par \fi
+ \@author{}
+\end{flushright}
+\thispagestyle{plain}
+\endgroup
+}
+\makeatother
+%
+\makeatletter
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {.5\Cvs}% 前アキ
+    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    {\normalfont\large\headfont}}
+
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+    {\z@}%
+    {\z@}%
+    {\normalfont\normalsize\headfont}}
+\makeatother

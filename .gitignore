@@ -11,12 +11,15 @@
 !/.bash_colour.example
 !/.bash_profile
 !/.bashrc
+!/.zshrc
+!/.screenrc
 
 !/bin
 !/.emacs.d/
 !/.fonts/
 !/.inputrc
 !/.skk
+!/texmf
 
 !/.vimrc
 !/.vim
