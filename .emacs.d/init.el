@@ -14,7 +14,7 @@
 (defvar installing-package-list
   '(
     anything init-loader w3m csv-mode undo-tree org2blog
-	     xml-rpc metaweblog migemo web-mode
+	     xml-rpc metaweblog migemo web-mode egg
     ))
 
 (let ((not-installed (loop for x in installing-package-list

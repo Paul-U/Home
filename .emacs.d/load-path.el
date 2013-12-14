@@ -10,7 +10,8 @@
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
       (normal-top-level-add-subdirs-to-load-path)))
 
+(when (file-exists-p "~/.local/share/emacs/site-lisp/")
 (let ((default-directory (expand-file-name "~/.local/share/emacs/site-lisp/")))
   (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-      (normal-top-level-add-subdirs-to-load-path)))
+      (normal-top-level-add-subdirs-to-load-path))))
