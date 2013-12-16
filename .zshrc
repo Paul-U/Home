@@ -1,6 +1,6 @@
 source ~/.bashrc
 
-PS1="[@${HOST%%.*} %1~]%(!.#.%%) "
+PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 export HISTFILE=${HOME}/.zsh_history
