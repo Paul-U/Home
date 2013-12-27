@@ -13,7 +13,7 @@
 
 (defvar installing-package-list
   '(
-    anything init-loader w3m csv-mode undo-tree org2blog
+    anything init-loader w3m csv-mode undo-tree
 	     xml-rpc metaweblog migemo web-mode egg
     ))
 
