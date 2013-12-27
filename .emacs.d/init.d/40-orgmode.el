@@ -48,9 +48,9 @@
 \\usepackage[dvipdfmx]{graphicx}
 \\usepackage{url}
 \\usepackage{amsmath}
-\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
+\\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
 bookmarkstype=toc]{hyperref}
-\usepackage{pxjahyper}
+\\usepackage{pxjahyper}
 [NO-DEFAULT-PACKAGES]
 [PACKAGES]
 [EXTRA]"
