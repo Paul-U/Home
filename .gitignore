@@ -27,3 +27,5 @@
 !/_vimrc
 /.viminfo
 /_viminfo
+
+!/setup.sh
