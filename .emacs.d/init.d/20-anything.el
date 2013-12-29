@@ -1,6 +1,7 @@
 (require 'anything)
 (require 'anything-config)
 (require 'anything-startup)
+(require 'recentf)
 (setq anything-c-filelist-file-name "/tmp/all.filelist")
  (setq anything-sources
        '(anything-c-source-emacs-commands
