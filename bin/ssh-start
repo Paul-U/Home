@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ssh-agent | grep -v echo > "${HOME}/.ssh/agent-env"
+source "${HOME}/.ssh/agent-env"
+for file in `\ls ~/.ssh/id_rsa*`
+do
+ssh-add $file
+done
+echo "please type:"
+echo "source ~/.ssh/agent-env"

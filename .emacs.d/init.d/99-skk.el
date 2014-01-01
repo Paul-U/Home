@@ -1,4 +1,3 @@
-(require 'skk)
 (setq skk-isearch-mode-enable 'always)
 (setq default-input-method
       "japanese-skk"			; (skk-mode 1)

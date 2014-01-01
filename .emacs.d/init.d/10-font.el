@@ -18,20 +18,20 @@
   "(defun apply-font-settings ()
   \"~~~~\"
   (interactive)
-  (set-frame-font \"Inconsolata:pixelsize=16:spacing=0\")
-  (set-face-font \'variable-pitch \"Inconsolata\")
+  (set-frame-font \"Ricty:pixelsize=16:spacing=0\")
+  (set-face-font \'variable-pitch \"Ricty\")
   (set-fontset-font (frame-parameter nil 'font)
 		    'japanese-jisx0208
-		    '(\"Takaoゴシック\" . \"unicode-bmp\")
+		    '(\"Ricty\" . \"unicode-bmp\")
 		    )
   )
 "
   (interactive)
-  (set-frame-font "Inconsolata:pixelsize=16:spacing=0")
-  (set-face-font 'variable-pitch "Inconsolata")
+  (set-frame-font "Ricty:pixelsize=16:spacing=0")
+  (set-face-font 'variable-pitch "Ricty")
   (set-fontset-font (frame-parameter nil 'font)
 		    'japanese-jisx0208
-		    '("Takaoゴシック" . "unicode-bmp")
+		    '("Ricty" . "unicode-bmp")
 		    )
   )
 

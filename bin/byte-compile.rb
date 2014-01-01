@@ -1,4 +1,4 @@
-#!/home/kouzukekouryu/.rvm/rubies/ruby-2.0.0-p247/bin/ruby
+#!/usr/bin/ruby
 # byte-compile from command line
 # Needs Ruby 1.9.x
 EMACS = "/usr/local/bin/emacs"

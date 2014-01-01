@@ -2,7 +2,7 @@
 
 target=(".bashrc" ".bash_profile" "bin" ".emacs.d" ".fonts" \
 	".inputrc" ".screenrc" ".skk" "texmf" ".vim" "_vimrc" \
-	".zshrc")
+	".zshrc" ".zsh.d")
 
 for file in ${target[@]}
 do
