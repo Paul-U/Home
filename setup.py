@@ -18,20 +18,22 @@ for root,fname in fnames:
     if not os.path.exists(targetdir):
         os.makedirs(targetdir);
         
-    target = os.path.join(targetdir,fname);
-    
+    target = foo(os.path.join(targetdir,fname));
+    base   = foo(os.path.join(root,fname));
     try:
         if os.path.exists(target):
+            if os.path.samefile(base,target):
+                continue;
             while True:
-                ans = input("%s exists. Replace it? [Y/n] "%(foo(target)));
+                ans = input("%s exists. Replace it? [Y/n] "%(target));
                 if re.match("^[Yy]([Ee][Ss])?$",ans):
                     os.remove(target);
                     break;
                 elif re.match("^[Nn][Oo]?$",ans):
                     raise Exception;
-        os.symlink(foo(os.path.join(root,fname)),foo(target));
+        os.symlink(base,target);
         print("make symbolic link from %s to %s"%
-              (foo(os.path.join(root,fname)),foo(target)))
+              (base,target))
     except:
         pass;
     else:
