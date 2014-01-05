@@ -1,5 +1,5 @@
 source ~/.bashrc
-source ~/.zsh.d/completion
+source ~/.zsh.d/completion.zsh
 
 PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
 
