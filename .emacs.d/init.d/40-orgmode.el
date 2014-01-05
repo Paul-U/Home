@@ -4,7 +4,7 @@
 
 (require 'org-install)
 (require 'org-faces)
-
+(require 'recentf)
 ;; キーバインドの設定
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)

@@ -13,8 +13,13 @@
 (setq skk-isearch-start-mode 'latin)
 
 (setq skk-extra-jisyo-file-list
-      (list "~/.skk.d/SKK-JISYO.L")
-      )
+      (mapcar (lambda (elem) (concat "~/.skk.d/" elem))
+      (list "SKK-JISYO.geo" "SKK-JISYO.L" "SKK-JISYO.station"
+           "SKK-JISYO.jinmei"  "SKK-JISYO.propernoun"
+           )
+      ))
+
+
 ;; 10 分放置すると個人辞書が自動的に保存される設定
 (defvar skk-auto-save-jisyo-interval 600)
 (defun skk-auto-save-jisyo ()
