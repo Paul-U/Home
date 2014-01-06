@@ -10,8 +10,9 @@ fnames = ([(root[2:],fname)
               if not ".git" in root
           for fname in fnames
               if not ".git" in fname]);
-ignore= ("./README.org","./setup.py");
-fnames =[item for item in fnames if not foo(os.path.join(item[0],item[1])) in [foo(file) for file in ignore]];
+ignore= ("./README.org", "./setup.py", "./ath.py");
+fnames = ([item for item in fnames
+           if not foo(os.path.join(item[0],item[1])) in [foo(file) for file in ignore]]);
 
 for root,fname in fnames:
     targetdir = foo(os.path.join(os.environ.get("HOME"),root))
@@ -38,3 +39,11 @@ for root,fname in fnames:
         pass;
     else:
         pass;
+
+from stat import *;
+
+scriptname=os.path.join(os.getenv("HOME"),"bin","ath");
+with open(scriptname, "w") as of:
+    of.write(open("ath.py").read().format(cwd=os.getcwd()));
+os.chmod(scriptname,
+         S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IROTH);

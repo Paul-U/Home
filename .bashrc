@@ -6,6 +6,7 @@ export LANG="en_US.UTF-8"
 alias ls="ls -lh --show-control-char --color=auto"
 alias la="ls -lha --show-control-char --color=auto"
 alias l.="ls -dlh .* --show-control-char --color=auto"
+alias e="emacs-nw"
 
 USERID=`id -u`
 

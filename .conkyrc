@@ -81,6 +81,9 @@ ${color green}Wifi: $color${wireless_essid wlp5s0} ${wireless_mode wlp5s0}
 ${color green}IP  : $color${addr wlp5s0}
 ${color green}Quality:$color ${wireless_link_qual_perc wlp5s0} ${wireless_link_bar 4 wlp5s0}
 $hr
+${color green}Volume:
+$color${execi 3 amixer sget Master | egrep \[[0-9]+%\]}
+$hr
 ${color green}Name              PID   CPU%   MEM%
 ${color green}--Sort by CPU--
 ${color lightgreen} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}

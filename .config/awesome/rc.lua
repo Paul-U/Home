@@ -323,7 +323,10 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
 
-    awful.key({}, "F10", toggle_conky)
+    awful.key({}, "F10", toggle_conky),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer sset Master 9%+") end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer sset Master 9%-") end)
+
 )
 
 clientkeys = awful.util.table.join(
