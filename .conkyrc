@@ -76,10 +76,10 @@ $hr
 ${color green}Battery: $color${battery}(${battery_time})
 $hr
 ${color green}Networking:
-Up:$color ${upspeed wlp5s0} ${color green} - Down:$color ${downspeed wlp5s0}
-${color green}Wifi: $color${wireless_essid wlp5s0} ${wireless_mode wlp5s0}
-${color green}IP  : $color${addr wlp5s0}
-${color green}Quality:$color ${wireless_link_qual_perc wlp5s0} ${wireless_link_bar 4 wlp5s0}
+Up:$color ${upspeed wifi1} ${color green} - Down:$color ${downspeed wifi1}
+${color green}Wifi: $color${wireless_essid wifi1} ${wireless_mode wifi1}
+${color green}IP  : $color${addr wifi1}
+${color green}Quality:$color ${wireless_link_qual_perc wifi1} ${wireless_link_bar 4 wifi1}
 $hr
 ${color green}Volume:
 $color${execi 3 amixer sget Master | egrep \[[0-9]+%\]}

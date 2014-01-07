@@ -2,13 +2,9 @@
 ;; Org-mode Settings
 ;;
 
-(require 'org-install)
-(require 'org-faces)
-(require 'recentf)
 ;; キーバインドの設定
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cr" 'org-remember)
 ;; 拡張子がorgのファイルを開いた時，自動的にorg-modeにする
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 ;; org-modeでの強調表示を可能にする
@@ -32,8 +28,8 @@
 ;; ------------------------------------------------------------------------
 ;; @ export
 
+(eval-after-load "org-export"
 ;; LaTeX Export Settings
-(require 'ox-latex)
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
 (setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
@@ -61,53 +57,49 @@ bookmarkstype=toc]{hyperref}
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
 (setq org-latex-default-class "jsarticle")
+)
 
 ;; ------------------------------------------------------------------------
 ;; @ agenda
 
-;; アジェンダ表示の対象ファイル
-(setq org-agenda-files (list org-directory))
-;; アジェンダ表示で下線を用いる
-(add-hook 'org-agenda-mode-hook '(lambda () (hl-line-mode 1)))
-;;(setq hl-line-face 'underline)
-;; 標準の祝日を利用しない
-(setq calendar-holidays nil)
-
+(eval-after-load "org-agenda"
+  ;; アジェンダ表示の対象ファイル
+  (setq org-agenda-files (list org-directory))
+  ;; アジェンダ表示で下線を用いる
+  (add-hook 'org-agenda-mode-hook '(lambda () (hl-line-mode 1)))
+  ;;(setq hl-line-face 'underline)
+  ;; 標準の祝日を利用しない
+  (setq calendar-holidays nil)
+)
 
 ;; ------------------------------------------------------------------------
 ;; @ capture
 
-(require 'org-capture)
-(setq org-startup-truncated nil)
-(setq org-return-follows-link t)
-(setq org-directory "~/org/")
-(setq org-default-notes-file (concat org-directory "notes.org"))
-(setq org-capture-templates
-      '(("t" "Todo" entry
-         (file+headline nil "Tasks")
-         "** TODO %?\n   %i\n   %a\n   %T")
-        ("f" "Fix" entry
-         (file+headline nil "Tasks")
-         "** TODO %?   :fix:\n   %i\n   %a\n   %T")
-	("n" "Note" entry
-	 (file+headline nil "Note")
-	 "** Note %?   :fix:\n   %i\n   %a\n   %T")
-        ("i" "Idea" entry
-         (file+headline nil "New Ideas")
-         "** %?\n   %i\n   %a\n   %T")
-	("l" "Life Log" entry
-	 (file+headline "~/org/lifelog.org" "Life Log")
-	 "** %?\n   %t")
-	("d" "Diary" entry
-	 (file+datetree "~/org/diary.org")
-	 "** Diary \"%^{prompt}\" %t\n   \n")
-	))
+(eval-after-load "org-capture"
+  (setq org-startup-truncated nil)
+  (setq org-return-follows-link t)
+  (setq org-directory "~/org/")
+  (setq org-default-notes-file (concat org-directory "notes.org"))
+  (setq org-capture-templates
+	'(("t" "Todo" entry
+	   (file+headline nil "Tasks")
+	   "** TODO %?\n   %i\n   %a\n   %T")
+	  ("f" "Fix" entry
+	   (file+headline nil "Tasks")
+	   "** TODO %?   :fix:\n   %i\n   %a\n   %T")
+	  ("n" "Note" entry
+	   (file+headline nil "Note")
+	   "** Note %?   :fix:\n   %i\n   %a\n   %T")
+	  ("i" "Idea" entry
+	   (file+headline nil "New Ideas")
+	   "** %?\n   %i\n   %a\n   %T")
+	  ("l" "Life Log" entry
+	   (file+headline "~/org/lifelog.org" "Life Log")
+	   "** %?\n   %t")
+	  ("d" "Diary" entry
+	   (file+datetree "~/org/diary.org")
+	   "** Diary \"%^{prompt}\" %t\n   \n")
+	  ))
+)
 (global-set-key (kbd "C-c c") 'org-capture)
-
-
-;; ------------------------------------------------------------------------
-;; @ babel
-
-(require 'ob-ditaa)
-(setq org-ditaa-jar-path "~/bin/ditaa0_9.jar")
 
