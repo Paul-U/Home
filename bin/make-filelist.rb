@@ -28,7 +28,7 @@ autom4te.cache blib _build .bzr .cdv cover_db CVS _darcs ~.dep ~.dot .git .hg ~.
 $EXCLUDE_REGEXP = Regexp.union(/~$/, /\#.+\#$/, /[._].*\.swp$/, /core\.\d+$/)
 
 # Set default directories to collect
-$LS_DIRS = ["~", "/home/", "/var/www/", "/"]
+$LS_DIRS = ["~", "/home/"]
 # ==== End of Customize Variables =====
 
 begin load "~/.make-filelist.rb"; rescue LoadError; end # Load configuration file

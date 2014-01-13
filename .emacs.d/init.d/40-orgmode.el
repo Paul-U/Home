@@ -29,6 +29,7 @@
 ;; @ export
 
 (eval-after-load "org-export"
+  (progn
 ;; LaTeX Export Settings
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
@@ -58,11 +59,13 @@ bookmarkstype=toc]{hyperref}
 ))
 (setq org-latex-default-class "jsarticle")
 )
+)
 
 ;; ------------------------------------------------------------------------
 ;; @ agenda
 
 (eval-after-load "org-agenda"
+  (progn
   ;; アジェンダ表示の対象ファイル
   (setq org-agenda-files (list org-directory))
   ;; アジェンダ表示で下線を用いる
@@ -70,18 +73,18 @@ bookmarkstype=toc]{hyperref}
   ;;(setq hl-line-face 'underline)
   ;; 標準の祝日を利用しない
   (setq calendar-holidays nil)
+  )
 )
 
 ;; ------------------------------------------------------------------------
 ;; @ capture
 
-(eval-after-load "org-capture"
-  (setq org-startup-truncated nil)
-  (setq org-return-follows-link t)
-  (setq org-directory "~/org/")
-  (setq org-default-notes-file (concat org-directory "notes.org"))
-  (setq org-capture-templates
-	'(("t" "Todo" entry
+(setq org-startup-truncated nil)
+(setq org-return-follows-link t)
+(setq org-directory "~/org/")
+(setq org-default-notes-file (concat org-directory "notes.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry
 	   (file+headline nil "Tasks")
 	   "** TODO %?\n   %i\n   %a\n   %T")
 	  ("f" "Fix" entry
@@ -100,6 +103,5 @@ bookmarkstype=toc]{hyperref}
 	   (file+datetree "~/org/diary.org")
 	   "** Diary \"%^{prompt}\" %t\n   \n")
 	  ))
-)
 (global-set-key (kbd "C-c c") 'org-capture)
 

@@ -1,3 +1,4 @@
+
 (setq frame-title-format
       (format "%%b - %s-%s@%s"
 	      invocation-name emacs-version system-name))
@@ -115,3 +116,5 @@
 (setq vc-follow-symlinks t)
 
 (require 'recentf)
+
+(global-set-key "\C-xp" 'compile)

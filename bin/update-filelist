@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec ruby make-filelist.rb > ~/.tmp/all.filelist

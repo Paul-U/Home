@@ -10,7 +10,7 @@ fnames = ([(root[2:],fname)
               if not ".git" in root
           for fname in fnames
               if not ".git" in fname]);
-ignore= ("./README.org", "./setup.py", "./ath.py");
+ignore= ("./README.org", "./setup.py", "./add-dotfiles-repo");
 fnames = ([item for item in fnames
            if not foo(os.path.join(item[0],item[1])) in [foo(file) for file in ignore]]);
 
@@ -42,8 +42,8 @@ for root,fname in fnames:
 
 from stat import *;
 
-scriptname=os.path.join(os.getenv("HOME"),"bin","ath");
+scriptname=os.path.join(os.getenv("HOME"),"bin","add-dotfiles-repos");
 with open(scriptname, "w") as of:
-    of.write(open("ath.py").read().format(cwd=os.getcwd()));
+    of.write(open("add-dotfiles-repos").read().format(cwd=os.getcwd()));
 os.chmod(scriptname,
          S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IROTH);
