@@ -10,7 +10,7 @@ fnames = ([(root[2:],fname)
               if not ".git" in root
           for fname in fnames
               if not ".git" in fname]);
-ignore= ("./README.org", "./setup.py", "./add-dotfiles-repo");
+ignore= ("./README.org", "./setup.py", "./add-dotfiles-repos");
 fnames = ([item for item in fnames
            if not foo(os.path.join(item[0],item[1])) in [foo(file) for file in ignore]]);
 

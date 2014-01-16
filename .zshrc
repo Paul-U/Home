@@ -15,5 +15,5 @@ setopt hist_reduce_blanks
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
 if [ ${SHLVL} = 1 ]; then
-    screen -x || screen
+    screen -xR || screen
 fi

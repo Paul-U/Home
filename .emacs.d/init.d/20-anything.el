@@ -1,4 +1,4 @@
-(autoload 'anything-config "anything" nil t)
+(autoload 'anything "anything" nil t)
 (eval-after-load "anything"
   '(progn
      (require 'anything-config)

@@ -80,18 +80,18 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ Current Line Highlight
-;; (defface hlline-face
-;;   '((((class color)
-;;       (background dark))
-;;      (:background "dark slate gray"))
-;;     (((class color)
-;;       (background light))
-;;      (:background  "color-24"))
-;;     (t
-;;      ()))
-;;   "*Face used by hl-line.")
-;; (setq hl-line-face 'hlline-face)
-;; (global-hl-line-mode 0)
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background  "color-24"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+(global-hl-line-mode t)
 
 ;; ------------------------------------------------------------------------
 ;; @ Misc
@@ -118,3 +118,6 @@
 (require 'recentf)
 
 (global-set-key "\C-xp" 'compile)
+
+(setq twittering-use-master-password t)
+
