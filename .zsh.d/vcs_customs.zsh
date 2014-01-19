@@ -5,8 +5,6 @@
 
 # vcs_info 設定
 
-RPROMPT=""
-
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 autoload -Uz is-at-least
@@ -18,7 +16,7 @@ autoload -Uz colors
 #   $vcs_info_msg_2_ : エラーメッセージ用 (赤)
 zstyle ':vcs_info:*' max-exports 3
 
-zstyle ':vcs_info:*' enable git svn hg bzr
+zstyle ':vcs_info:*' enable git
 # 標準のフォーマット(git 以外で使用)
 # misc(%m) は通常は空文字列に置き換えられる
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
@@ -26,11 +24,10 @@ zstyle ':vcs_info:*' actionformats '(%s)-[%b]' '%m' '<!%a>'
 zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
 
-
 if is-at-least 4.3.10; then
     # git 用のフォーマット
     # git のときはステージしているかどうかを表示
-    zstyle ':vcs_info:git:*' formats '(%s)-[%b]' '%c%u %m'
+    zstyle ':vcs_info:git:*' formats '[%b]' '%c%u %m'
     zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
     zstyle ':vcs_info:git:*' check-for-changes true
     zstyle ':vcs_info:git:*' stagedstr "+"    # %c で表示する文字列
@@ -164,7 +161,7 @@ function _update_vcs_info_msg() {
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_info で何も取得していない場合はプロンプトを表示しない
-        prompt=""
+        prompt="[%n@%m]"
     else
         # vcs_info で情報を取得した場合
         # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を

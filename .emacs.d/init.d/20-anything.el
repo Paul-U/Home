@@ -1,7 +1,7 @@
 (autoload 'anything "anything" nil t)
 (eval-after-load "anything"
   '(progn
-     (require 'anything-config)
+     (require 'anything-startup)
      (setq anything-c-filelist-file-name "~/.tmp/all.filelist")
      (setq anything-sources
 	   '(anything-c-source-emacs-commands
