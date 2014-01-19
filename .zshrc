@@ -1,7 +1,7 @@
 source ~/.bashrc
 source ~/.zsh.d/completion.zsh
 
-PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
+source ~/.zsh.d/prompt.zsh
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
@@ -15,5 +15,5 @@ setopt hist_reduce_blanks
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
 if [ ${SHLVL} = 1 ]; then
-    screen -xR || screen
+    screen -x || screen
 fi
