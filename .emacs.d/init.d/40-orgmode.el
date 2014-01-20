@@ -31,17 +31,17 @@
 (eval-after-load "org-export"
   (progn
 ;; LaTeX Export Settings
-(unless (boundp 'org-export-latex-classes)
-  (setq org-export-latex-classes nil))
-(setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
+    (unless (boundp 'org-export-latex-classes)
+      (setq org-export-latex-classes nil))
+    (setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
 
-(setq org-latex-coding-system 'utf-8)
-(setq org-latex-date-format "%Y-%m-%d")
-;(setq org-latex-classes nil)
-(setq org-latex-classes nil)
-(add-to-list 'org-latex-classes
-  '("resume"
-    "\\documentclass[a4j,11pt]{jsarticle}
+    (setq org-latex-coding-system 'utf-8)
+    (setq org-latex-date-format "%Y-%m-%d")
+					;(setq org-latex-classes nil)
+    (setq org-latex-classes nil)
+    (add-to-list 'org-latex-classes
+		 '("jsarticle"
+		   "\\documentclass[a4j,11pt]{jsarticle}
 \\usepackage[dvipdfmx]{graphicx}
 \\usepackage{url}
 \\usepackage{amsmath}
@@ -78,6 +78,9 @@ bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
 ))
 (setq org-latex-default-class "resume")
 )
+
+;; Reveal.js export settings
+(setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
 )
 
 ;; ------------------------------------------------------------------------

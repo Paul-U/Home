@@ -1,11 +1,7 @@
 source ~/.bashrc
 source ~/.zsh.d/completion.zsh
 
-export PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
-
-if [ "$EMACS" != "" ]; then
-    export PS="$ "
-fi
+source ~/.zsh.d/prompt.zsh
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
