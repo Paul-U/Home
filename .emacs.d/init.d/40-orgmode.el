@@ -29,7 +29,7 @@
 ;; @ export
 
 (eval-after-load "org-export"
-  (progn
+  (quote(progn
 ;; LaTeX Export Settings
     (unless (boundp 'org-export-latex-classes)
       (setq org-export-latex-classes nil))
@@ -77,16 +77,25 @@ bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
 (setq org-latex-default-class "resume")
-)
 
-;; Reveal.js export settings
+(require 'ox-reveal)
+(require 'graphviz-dot-mode)
 (setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
+(org-babel-do-load-languages 'org-babel-load-languages
+			     '((emacs-lisp . t)
+			       (dot . t)))
+(setq org-src-lang-modes 
+      (append '(("dot" . graphviz-dot))
+	      (delq (assoc "dot" org-src-lang-modes)
+		    org-src-lang-modes)))
 )
+))
 
 ;; ------------------------------------------------------------------------
 ;; @ agenda
 
 (eval-after-load "org-agenda"
+  (quote
   (progn
   ;; アジェンダ表示の対象ファイル
   (setq org-agenda-files (list org-directory))
@@ -95,6 +104,7 @@ bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
   ;;(setq hl-line-face 'underline)
   ;; 標準の祝日を利用しない
   (setq calendar-holidays nil)
+  )
   )
 )
 
