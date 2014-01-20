@@ -120,4 +120,7 @@
 (global-set-key "\C-xp" 'compile)
 
 (setq twittering-use-master-password t)
+(add-hook 'twittering-mode-init-hook
+	  '(lambda () (linum-mode 0) (hl-line-mode 0)))
 
+(windmove-default-keybindings 'meta)

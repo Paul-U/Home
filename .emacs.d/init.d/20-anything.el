@@ -1,7 +1,7 @@
-(autoload 'anything "anything" nil t)
 (eval-after-load "anything"
-  '(progn
-     (require 'anything-config)
+  (quote
+   (progn
+     (require 'anything-startup)
      (setq anything-c-filelist-file-name "~/.tmp/all.filelist")
      (setq anything-sources
 	   '(anything-c-source-emacs-commands
@@ -9,7 +9,7 @@
 	     anything-c-source-recentf
 	     anything-c-source-buffers+
 	     anything-c-source-files-in-current-dir+))
-     ))
+     )))
 (setq anything-idle-delay 0.3)
 (setq anything-input-idle-delay 0.4)
 (setq anything-candidate-number-limit 35)
@@ -46,8 +46,9 @@
               entry))
            )))))
 
-(global-set-key (kbd "\C-xaa") 'anything)
-(global-set-key (kbd "\C-xaf") 'anything-filelist+)
+(global-set-key (kbd "C-x a a") 'anything)
+(global-set-key (kbd "C-x a f") 'anything-filelist+)
+(global-set-key (kbd "C-x M-x") 'anything-M-x)
 (global-set-key (kbd "\C-xax")
 		  (lambda () (interactive)
 		    (shell-command

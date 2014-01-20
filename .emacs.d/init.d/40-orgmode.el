@@ -40,13 +40,14 @@
 ;(setq org-latex-classes nil)
 (setq org-latex-classes nil)
 (add-to-list 'org-latex-classes
-  '("jsarticle"
+  '("resume"
     "\\documentclass[a4j,11pt]{jsarticle}
 \\usepackage[dvipdfmx]{graphicx}
 \\usepackage{url}
 \\usepackage{amsmath}
 \\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
 bookmarkstype=toc]{hyperref}
+\\usepackage{resume}
 \\usepackage{pxjahyper}
 [NO-DEFAULT-PACKAGES]
 [PACKAGES]
@@ -57,7 +58,25 @@ bookmarkstype=toc]{hyperref}
     ("\\paragraph{%s}" . "\\paragraph*{%s}")
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
-(setq org-latex-default-class "jsarticle")
+
+(add-to-list 'org-latex-classes
+  '("jsbook"
+    "\\documentclass[a4j,12pt,oneside]{jsbook}
+\\usepackage[dvipdfmx]{graphicx} \\usepackage{url}
+\\usepackage{amsmath}
+\\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
+bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
+\\usepackage{jsbookoptions}
+\\setlength{\\textwidth}{40zw}
+[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+("\\chapter{%s}" . "\\chapter*{%s}")
+("\\section{%s}" . "\\section*{%s}")
+("\\subsection{%s}" . "\\subsection*{%s}")
+("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+("\\paragraph{%s}" . "\\paragraph*{%s}")
+("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+))
+(setq org-latex-default-class "resume")
 )
 )
 

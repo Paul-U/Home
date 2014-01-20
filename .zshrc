@@ -1,7 +1,11 @@
 source ~/.bashrc
 source ~/.zsh.d/completion.zsh
 
-PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
+export PS1="[@${HOST%%.*} %0~]%(!.#.%%) "
+
+if [ "$EMACS" != "" ]; then
+    export PS="$ "
+fi
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
@@ -14,6 +18,8 @@ setopt hist_reduce_blanks
 
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
-if [ ${SHLVL} = 1 ]; then
-    screen -xR || screen
+if [ "$STY" = "" ]; then
+    if [ "$EMACS" = "" ]; then
+	screen -xR || screen
+    fi
 fi
