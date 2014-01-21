@@ -29,7 +29,7 @@
 ;; @ export
 
 (eval-after-load "org-export"
-  (progn
+  (quote(progn
 ;; LaTeX Export Settings
     (unless (boundp 'org-export-latex-classes)
       (setq org-export-latex-classes nil))
@@ -47,6 +47,7 @@
 \\usepackage{amsmath}
 \\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
 bookmarkstype=toc]{hyperref}
+\\usepackage{resume}
 \\usepackage{pxjahyper}
 [NO-DEFAULT-PACKAGES]
 [PACKAGES]
@@ -57,19 +58,44 @@ bookmarkstype=toc]{hyperref}
     ("\\paragraph{%s}" . "\\paragraph*{%s}")
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
-(setq org-latex-default-class "jsarticle")
 
 
-;; Reveal.js export settings
+(add-to-list 'org-latex-classes
+  '("jsbook"
+    "\\documentclass[a4j,12pt,oneside]{jsbook}
+\\usepackage[dvipdfmx]{graphicx} \\usepackage{url}
+\\usepackage{amsmath}
+\\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
+bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
+\\usepackage{jsbookoptions}
+\\setlength{\\textwidth}{40zw}
+[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+("\\chapter{%s}" . "\\chapter*{%s}")
+("\\section{%s}" . "\\section*{%s}")
+("\\subsection{%s}" . "\\subsection*{%s}")
+("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+("\\paragraph{%s}" . "\\paragraph*{%s}")
+("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+))
+(setq org-latex-default-class "resume")
+
 (require 'ox-reveal)
+(require 'graphviz-dot-mode)
 (setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
-)
-)
+(org-babel-do-load-languages 'org-babel-load-languages
+			     '((emacs-lisp . t)
+			       (dot . t)))
+(setq org-src-lang-modes 
+      (append '(("dot" . graphviz-dot))
+	      (delq (assoc "dot" org-src-lang-modes)
+		    org-src-lang-modes)))
+)))
 
 ;; ------------------------------------------------------------------------
 ;; @ agenda
 
 (eval-after-load "org-agenda"
+  (quote
   (progn
   ;; アジェンダ表示の対象ファイル
   (setq org-agenda-files (list org-directory))
@@ -78,6 +104,7 @@ bookmarkstype=toc]{hyperref}
   ;;(setq hl-line-face 'underline)
   ;; 標準の祝日を利用しない
   (setq calendar-holidays nil)
+  )
   )
 )
 

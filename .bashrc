@@ -6,9 +6,12 @@ export LANG="en_US.UTF-8"
 alias ls="ls -lh --show-control-char --color=auto"
 alias la="ls -lha --show-control-char --color=auto"
 alias l.="ls -dlh .* --show-control-char --color=auto"
-alias e="emacs-nw"
+alias open="xdg-open"
+alias e="~/bin/emacs-nw"
 
-USERID=`id -u`
+export GOPATH=$HOME/.local/go
+
+export USERID=`id -u`
 
 if [ -e $HOME/.rvm ]; then
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
