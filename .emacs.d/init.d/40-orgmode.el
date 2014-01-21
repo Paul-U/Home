@@ -58,10 +58,12 @@ bookmarkstype=toc]{hyperref}
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
 (setq org-latex-default-class "jsarticle")
-)
+
 
 ;; Reveal.js export settings
+(require 'ox-reveal)
 (setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
+)
 )
 
 ;; ------------------------------------------------------------------------

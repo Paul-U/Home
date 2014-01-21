@@ -1,4 +1,4 @@
-source ~/.bashrc
+source ~/.bash_profile
 source ~/.zsh.d/completion.zsh
 
 source ~/.zsh.d/prompt.zsh
