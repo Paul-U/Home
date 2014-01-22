@@ -28,7 +28,7 @@
 ;; ------------------------------------------------------------------------
 ;; @ export
 
-(eval-after-load "org-export"
+(eval-after-load "ox"
   (quote(progn
 ;; LaTeX Export Settings
     (unless (boundp 'org-export-latex-classes)
