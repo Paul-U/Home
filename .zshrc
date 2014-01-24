@@ -14,8 +14,8 @@ setopt hist_reduce_blanks
 
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
-if [ "$STY" = "" ]; then
+if [ "$TMUX" = "" ]; then
     if [ "$EMACS" = "" ]; then
-	screen -xR || screen
+	tmux attach-session || tmux
     fi
 fi
