@@ -50,7 +50,10 @@
 
 (global-set-key (kbd "C-x a a") 'anything)
 (global-set-key (kbd "C-x a f") 'anything-filelist+)
+(global-set-key (kbd "C-x b") 'anything-for-files)
 (global-set-key (kbd "M-x") 'anything-M-x)
+
+
 (global-set-key (kbd "\C-xax")
 		  (lambda () (interactive)
 		    (shell-command

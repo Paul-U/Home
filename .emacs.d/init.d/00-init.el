@@ -80,6 +80,7 @@
 
 ;; ------------------------------------------------------------------------
 ;; @ Current Line Highlight
+(when (window-system)
 (defface hlline-face
   '((((class color)
       (background dark))
@@ -92,7 +93,7 @@
   "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
 (global-hl-line-mode t)
-
+)
 ;; ------------------------------------------------------------------------
 ;; @ Misc
 (setq truncate-partial-width-windows nil)

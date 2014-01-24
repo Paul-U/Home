@@ -81,14 +81,22 @@ bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
 
 (require 'ox-reveal)
 (require 'graphviz-dot-mode)
+(require 'ob-R)
 (setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
 (org-babel-do-load-languages 'org-babel-load-languages
 			     '((emacs-lisp . t)
-			       (dot . t)))
+			       (dot . t)
+			       (R . t)))
 (setq org-src-lang-modes 
       (append '(("dot" . graphviz-dot))
 	      (delq (assoc "dot" org-src-lang-modes)
 		    org-src-lang-modes)))
+(autoload 'R-mode "ess-site" nil t)
+(setq org-src-lang-modes 
+      (append '(("R" . R))
+	      (delq (assoc "R" org-src-lang-modes)
+		    org-src-lang-modes)))
+
 )))
 
 ;; ------------------------------------------------------------------------
