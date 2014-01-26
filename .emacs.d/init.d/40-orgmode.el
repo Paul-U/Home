@@ -17,7 +17,7 @@
 ;; org-default-notes-fileのファイル名
 (setq org-default-notes-file "notes.org")
 
-(setq org-file-apps '(("pdf" . "evince %s")))
+(setq org-file-apps '(("pdf" . "epdfview %s")))
 
 ;; TODO状態
 (setq org-todo-keywords 
