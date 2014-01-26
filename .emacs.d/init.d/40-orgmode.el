@@ -17,7 +17,7 @@
 ;; org-default-notes-fileのファイル名
 (setq org-default-notes-file "notes.org")
 
-(setq org-file-apps '(("pdf" . "evince %s")))
+(setq org-file-apps '(("pdf" . "epdfview %s")))
 
 ;; TODO状態
 (setq org-todo-keywords 
@@ -40,7 +40,7 @@
 					;(setq org-latex-classes nil)
     (setq org-latex-classes nil)
     (add-to-list 'org-latex-classes
-		 '("jsarticle"
+		 '("resume"
 		   "\\documentclass[a4j,11pt]{jsarticle}
 \\usepackage[dvipdfmx]{graphicx}
 \\usepackage{url}
