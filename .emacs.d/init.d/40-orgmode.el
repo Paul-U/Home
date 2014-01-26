@@ -29,92 +29,103 @@
 ;; @ export
 
 (eval-after-load "ox"
-  (quote(progn
-;; LaTeX Export Settings
-    (unless (boundp 'org-export-latex-classes)
-      (setq org-export-latex-classes nil))
-    (setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
+  (quote
+   (progn
+     ;; LaTeX Export Settings
+     (require 'ox-latex)
+     (setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
 
-    (setq org-latex-coding-system 'utf-8)
-    (setq org-latex-date-format "%Y-%m-%d")
+     (setq org-latex-coding-system 'utf-8)
+     (setq org-latex-date-format "%Y-%m-%d")
 					;(setq org-latex-classes nil)
-    (setq org-latex-classes nil)
-    (add-to-list 'org-latex-classes
-		 '("jsarticle"
-		   "\\documentclass[a4j,11pt]{jsarticle}
-\\usepackage[dvipdfmx]{graphicx}
-\\usepackage{url}
-\\usepackage{amsmath}
-\\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
-bookmarkstype=toc]{hyperref}
-\\usepackage{resume}
-\\usepackage{pxjahyper}
-[NO-DEFAULT-PACKAGES]
-[PACKAGES]
-[EXTRA]"
-    ("\\section{%s}" . "\\section*{%s}")
-    ("\\subsection{%s}" . "\\subsection*{%s}")
-    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-    ("\\paragraph{%s}" . "\\paragraph*{%s}")
-    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-))
-
-
-(add-to-list 'org-latex-classes
-  '("jsbook"
-    "\\documentclass[a4j,12pt,oneside]{jsbook}
-\\usepackage[dvipdfmx]{graphicx} \\usepackage{url}
-\\usepackage{amsmath}
-\\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,%
-bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
-\\usepackage{jsbookoptions}
-\\setlength{\\textwidth}{40zw}
-[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
-("\\chapter{%s}" . "\\chapter*{%s}")
-("\\section{%s}" . "\\section*{%s}")
-("\\subsection{%s}" . "\\subsection*{%s}")
-("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-("\\paragraph{%s}" . "\\paragraph*{%s}")
-("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-))
-(setq org-latex-default-class "resume")
-
-(require 'ox-reveal)
-(require 'graphviz-dot-mode)
-(require 'ob-R)
-(setq org-reveal-root (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
-(org-babel-do-load-languages 'org-babel-load-languages
-			     '((emacs-lisp . t)
-			       (dot . t)
-			       (R . t)))
-(setq org-src-lang-modes 
-      (append '(("dot" . graphviz-dot))
-	      (delq (assoc "dot" org-src-lang-modes)
-		    org-src-lang-modes)))
-(autoload 'R-mode "ess-site" nil t)
-(setq org-src-lang-modes 
-      (append '(("R" . R))
-	      (delq (assoc "R" org-src-lang-modes)
-		    org-src-lang-modes)))
-
-)))
+     (defvar simple-latex-structure
+       '(
+	 ("\\section{%s}" . "\\section*{%s}")
+	 ("\\subsection{%s}" . "\\subsection*{%s}")
+	 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+       )
+     (setq org-latex-classes nil)
+     (add-to-list 'org-latex-classes
+		  (list
+		   "jsarticle"
+		   (concat
+		    "\\documentclass[a4j,11pt]{jsarticle}"
+		    "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
+		    )
+		   simple-latex-structure
+		   ))
+     (add-to-list 'org-latex-classes
+		  (list
+		   "resume" 
+		   (concat
+		    "\\documentclass[a4j,11pt]{jsarticle}"
+		    "\\usepackage{resume}"
+		    "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
+		    )
+		   simple-latex-structure
+		   ))
+     (add-to-list 'org-latex-classes
+		  (list
+		   "abstract" 
+		   (concat
+		    "\\documentclass[a4j,10pt,twocolumn]{jsarticle}\n"
+		    "\\usepackage{thesis_abstract}\n"
+		    "[NO-DEFAULT-PACKAGES]\n[PACKAGES]\n[EXTRA]"
+		    )
+		   simple-latex-structure
+		   ))
+     (add-to-list 'org-latex-classes
+		  (list
+		   "jsbook"
+		   (concat
+		    "\\documentclass[a4j,12pt,oneside]{jsbook}"
+		    "[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+		    )
+		   '(("\\chapter{%s}" . "\\chapter*{%s}"))
+		   simple-latex-structure
+		   ))
+     
+     (require 'ox-reveal)
+     (require 'graphviz-dot-mode)
+     (require 'ob-R)
+     (setq org-reveal-root
+	   (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
+     (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t) (dot . t) (R . t)))
+     
+     (setq org-src-lang-modes 
+	   (append '(("dot" . graphviz-dot))
+		   (delq (assoc "dot" org-src-lang-modes)
+			 org-src-lang-modes)))
+     
+     (autoload 'R-mode "ess-site" nil t)
+     (setq org-src-lang-modes 
+	   (append '(("R" . R))
+		   (delq (assoc "R" org-src-lang-modes)
+			 org-src-lang-modes)))
+     )
+   )
+  )
 
 ;; ------------------------------------------------------------------------
 ;; @ agenda
 
 (eval-after-load "org-agenda"
   (quote
-  (progn
-  ;; アジェンダ表示の対象ファイル
-  (setq org-agenda-files (list org-directory))
-  ;; アジェンダ表示で下線を用いる
-  (add-hook 'org-agenda-mode-hook '(lambda () (hl-line-mode 1)))
-  ;;(setq hl-line-face 'underline)
-  ;; 標準の祝日を利用しない
-  (setq calendar-holidays nil)
+   (progn
+     ;; アジェンダ表示の対象ファイル
+     (setq org-agenda-files (list org-directory))
+     ;; アジェンダ表示で下線を用いる
+     (add-hook 'org-agenda-mode-hook '(lambda () (hl-line-mode 1)))
+     ;;(setq hl-line-face 'underline)
+     ;; 標準の祝日を利用しない
+     (setq calendar-holidays nil)
+     )
+   )
   )
-  )
-)
 
 ;; ------------------------------------------------------------------------
 ;; @ capture
@@ -125,23 +136,23 @@ bookmarkstype=toc]{hyperref} \\usepackage{pxjahyper}
 (setq org-default-notes-file (concat org-directory "notes.org"))
 (setq org-capture-templates
       '(("t" "Todo" entry
-	   (file+headline nil "Tasks")
-	   "** TODO %?\n   %i\n   %a\n   %T")
-	  ("f" "Fix" entry
-	   (file+headline nil "Tasks")
-	   "** TODO %?   :fix:\n   %i\n   %a\n   %T")
-	  ("n" "Note" entry
-	   (file+headline nil "Note")
-	   "** Note %?   :fix:\n   %i\n   %a\n   %T")
-	  ("i" "Idea" entry
-	   (file+headline nil "New Ideas")
-	   "** %?\n   %i\n   %a\n   %T")
-	  ("l" "Life Log" entry
-	   (file+headline "~/org/lifelog.org" "Life Log")
-	   "** %?\n   %t")
-	  ("d" "Diary" entry
-	   (file+datetree "~/org/diary.org")
-	   "** Diary \"%^{prompt}\" %t\n   \n")
-	  ))
+	 (file+headline nil "Tasks")
+	 "** TODO %?\n   %i\n   %a\n   %T")
+	("f" "Fix" entry
+	 (file+headline nil "Tasks")
+	 "** TODO %?   :fix:\n   %i\n   %a\n   %T")
+	("n" "Note" entry
+	 (file+headline nil "Note")
+	 "** Note %?   :fix:\n   %i\n   %a\n   %T")
+	("i" "Idea" entry
+	 (file+headline nil "New Ideas")
+	 "** %?\n   %i\n   %a\n   %T")
+	("l" "Life Log" entry
+	 (file+headline "~/org/lifelog.org" "Life Log")
+	 "** %?\n   %t")
+	("d" "Diary" entry
+	 (file+datetree "~/org/diary.org")
+	 "** Diary \"%^{prompt}\" %t\n   \n")
+	))
 (global-set-key (kbd "C-c c") 'org-capture)
 
