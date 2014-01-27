@@ -33,19 +33,20 @@
    (progn
      ;; LaTeX Export Settings
      (require 'ox-latex)
-     (setq org-latex-pdf-process '("platex %b" "platex %b" "dvipdfmx %b"))
+     (setq org-latex-pdf-process '("platex %b -shell-escape" "platex %b" "dvipdfmx %b"))
 
      (setq org-latex-coding-system 'utf-8)
      (setq org-latex-date-format "%Y-%m-%d")
+     (setq org-latex-default-figure-position "hbt")
 					;(setq org-latex-classes nil)
-     (defvar simple-latex-structure
-       '(
-	 ("\\section{%s}" . "\\section*{%s}")
-	 ("\\subsection{%s}" . "\\subsection*{%s}")
-	 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-	 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-	 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-       )
+     (setq simple-latex-structure
+	   '(
+	     ("\\section{%s}" . "\\section*{%s}")
+	     ("\\subsection{%s}" . "\\subsection*{%s}")
+	     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	     ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+	   )
      (setq org-latex-classes nil)
      (add-to-list 'org-latex-classes
 		  (list
@@ -67,13 +68,14 @@
 		   simple-latex-structure
 		   ))
      (add-to-list 'org-latex-classes
-		  (list
-		   "abstract" 
-		   (concat
-		    "\\documentclass[a4j,10pt,twocolumn]{jsarticle}\n"
-		    "\\usepackage{thesis_abstract}\n"
-		    "[NO-DEFAULT-PACKAGES]\n[PACKAGES]\n[EXTRA]"
-		    )
+		  (append
+		   (list
+		    "abstract" 
+		    (concat
+		     "\\documentclass[a4j,10pt,twocolumn,oneside]{jsarticle}\n"
+		     "\\usepackage{thesis_abstract}\n"
+		     "[NO-DEFAULT-PACKAGES]\n[PACKAGES]\n[EXTRA]"
+		     ))
 		   simple-latex-structure
 		   ))
      (add-to-list 'org-latex-classes

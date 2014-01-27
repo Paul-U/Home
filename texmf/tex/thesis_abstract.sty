@@ -1,0 +1,50 @@
+\usepackage{fancyhdr}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{abstract}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage[dvipdfmx,bookmarks=true,bookmarksnumbered=true,bookmarkstype=toc]{hyperref}
+\usepackage{pxjahyper}
+\usepackage[top=20truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+%
+%
+\makeatletter
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\@subtitle{}
+\def\teacher#1{\gdef\@teacher{#1}}
+\def\@teacher{}
+\makeatother
+\renewcommand{\today}{\number\year/\number\month/\number\day}
+%
+\makeatletter
+\renewcommand{\maketitle}{
+\twocolumn[
+\begingroup
+\begin{center}
+ {\bfseries\fontsize{14pt}{18pt}\selectfont\@title{}\vspace{0.5em}}\\
+ {\bfseries\fontsize{12pt}{12pt}\selectfont\@subtitle{}}\\
+ {\hspace{3em}氏名 \@author{}\hspace{4em}指導教員名 \@teacher{}}
+\end{center}
+\vspace{0.8em}
+\endgroup
+]
+}
+\makeatother
+%
+\setlength{\labelwidth}{0cm}
+\setlength{\leftmargin}{0cm}
+\setlength{\floatsep}{1em}
+\setlength{\textfloatsep}{2em}
+\setlength{\intextsep}{1em}
+%
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+    {\z@}% 前アキ
+    {\z@}% 後アキ
+    {\normalfont\bf\headfont}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\z@}%
+    {\z@}%
+    {\normalfont\bf\headfont}}
+\makeatother
