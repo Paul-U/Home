@@ -38,6 +38,7 @@
      (setq org-latex-coding-system 'utf-8)
      (setq org-latex-date-format "%Y-%m-%d")
      (setq org-latex-default-figure-position "hbt")
+     (setq org-confirm-babel-evaluate nil)
 					;(setq org-latex-classes nil)
      (setq simple-latex-structure
 	   '(
