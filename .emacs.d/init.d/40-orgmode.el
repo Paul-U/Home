@@ -89,16 +89,26 @@
 		   '(("\\chapter{%s}" . "\\chapter*{%s}"))
 		   simple-latex-structure
 		   ))
-     
+
      (require 'ox-reveal)
-     (require 'graphviz-dot-mode)
-     (require 'ob-R)
+     (require 'graphviz-dot-mode)     
      (setq org-reveal-root
 	   (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
      (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t) (dot . t) (R . t)))
      
+     )
+   )
+  )
+
+
+(eval-after-load "ob"
+  (quote
+   (progn
+     (require 'ox-reveal)
+     (require 'graphviz-dot-mode)
+     (require 'ob-R)
      (setq org-src-lang-modes 
 	   (append '(("dot" . graphviz-dot))
 		   (delq (assoc "dot" org-src-lang-modes)
