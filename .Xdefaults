@@ -24,8 +24,8 @@ URxvt*color12:	     #839486
 URxvt*color13:	     #6c71c4
 URxvt*color14:	     #93a1a1
 URxvt*color15:	     #fdf6e3
-URxvt*font:	     xft:Ricty:Bold:pixelsize=12:antialias=true
-URxvt*boldFont:	     xft:Ricty:pixelsize=12:antialias=true
+URxvt*font:	     xft:Ricty:Bold:pixelsize=14:antialias=true
+URxvt*boldFont:	     xft:Ricty:pixelsize=14:antialias=true
 URxvt*depth:	     32
 
 !*********!
