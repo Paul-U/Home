@@ -35,11 +35,11 @@ draw_graph_borders yes
 draw_outline no
 draw_shades no
 use_xft yes
-xftfont Ricty:size=10
+xftfont Ricty:size=8
 gap_x 10
 gap_y 25
 maximum_width 280
-minimum_size 280 5
+minimum_size 200 5
 net_avg_samples 2
 out_to_console no
 out_to_stderr no
