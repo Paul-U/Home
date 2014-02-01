@@ -10,7 +10,7 @@ Config { font = "xft:Ricty:pixelsize=12:bold"
                     , Run Battery 
                       [ "-t", "<watts>, <left>%/<timeleft>"]
                       10
-                    , Run Com "dropbox" ["status"] "dropbox" 600
+                    , Run Com "dropbox" ["status"] "dropbox" 60
                     , Run StdinReader
                     ]
        , sepChar = "%"
