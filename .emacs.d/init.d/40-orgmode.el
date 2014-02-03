@@ -50,22 +50,24 @@
 	   )
      (setq org-latex-classes nil)
      (add-to-list 'org-latex-classes
-		  (list
-		   "jsarticle"
-		   (concat
-		    "\\documentclass[a4j,11pt]{jsarticle}"
-		    "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
-		    )
+		  (append
+		   (list
+		    "jsarticle"
+		    (concat
+		     "\\documentclass[a4j,11pt]{jsarticle}\n"
+		     "[NO-DEFAULT-PACKAGES][PACKAGES][NO-EXTRA]"
+		     ))
 		   simple-latex-structure
 		   ))
      (add-to-list 'org-latex-classes
-		  (list
-		   "resume" 
-		   (concat
-		    "\\documentclass[a4j,11pt]{jsarticle}"
-		    "\\usepackage{resume}"
-		    "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
-		    )
+		  (append
+		   (list
+		    "resume" 
+		    (concat
+		     "\\documentclass[a4j,11pt]{jsarticle}\n"
+		     "\\usepackage{resume}"
+		     "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
+		     ))
 		   simple-latex-structure
 		   ))
      (add-to-list 'org-latex-classes
@@ -80,20 +82,26 @@
 		   simple-latex-structure
 		   ))
      (add-to-list 'org-latex-classes
-		  (list
-		   "jsbook"
-		   (concat
-		    "\\documentclass[a4j,12pt,oneside]{jsbook}"
-		    "[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+		  (append
+		   (list
+		    "jsbook"
+		    (concat
+		     "\\documentclass[a4j,12pt,oneside]{jsbook}\n"
+		     "[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+		     )
 		    )
 		   '(("\\chapter{%s}" . "\\chapter*{%s}"))
 		   simple-latex-structure
 		   ))
+     (setq org-latex-default-class "jsarticle")
 
-     (require 'ox-reveal)
-     (require 'graphviz-dot-mode)     
-     (setq org-reveal-root
-	   (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
+     (load "ox-reveal" 'noerror)
+     (eval-after-load "ox-reveal"
+       (setq org-reveal-root
+	     (concat (getenv "HOME") "/.emacs.d/etc/reveal.js"))
+       )
+
+     (load "graphviz-dot-mode" 'noerror)
      (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t) (dot . t) (R . t)))
