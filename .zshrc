@@ -3,6 +3,9 @@ source ~/.zsh.d/completion.zsh
 
 source ~/.zsh.d/prompt.zsh
 
+zshgo="/usr/share/go/misc/zsh/go"
+[ -f $zshgo ] && source $zshgo
+
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
