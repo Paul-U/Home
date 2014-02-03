@@ -20,6 +20,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'tyru/skk.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'kien/ctrlp.vim'
 
 filetype plugin indent on
 
@@ -49,7 +52,20 @@ au BufWritePre *.go Fmt
 filetype plugin indent on
 
 
+"-------------
+"  yankround
+"-------------
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 100
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+
+
 "--------
 "  misc
 "--------
 set laststatus=2
+inoremap <C-c> <Esc>
+cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
