@@ -88,7 +88,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 main = do
-  spawn "pgrep xcompmgr || xcompmgr"
+  spawn "xcompmgr"
+  spawn "dropbox start"
+  spawn "feh --bg-scale .bg"
+  spawn "fcitx"
   xmproc <- spawnPipe "xmobar"
   xmonad $ defaultConfig
       { manageHook = manageDocks <+> manageHook defaultConfig
@@ -98,7 +101,7 @@ main = do
                       , ppTitle = xmobarColor "orange" "" . shorten 50
                       }
       , terminal           = "urxvt"
-      , borderWidth        = 2
+      , borderWidth        = 4
       , normalBorderColor  = "#00000"
       , focusedBorderColor = "#6666cc"
       , modMask            = mod4Mask
