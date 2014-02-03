@@ -36,3 +36,20 @@ let skk_egg_like_newline = 1
 let skk_show_annotation = 1
 let skk_use_face = 1
 
+
+"----------
+"  golang
+"----------
+filetype off
+filetype plugin indent off
+set runtimepath+=/usr/share/go/misc/vim
+au FileType go setlocal sw=4 ts=4 sts=4 noet
+au FileType go setlocal makeprg=go\ build\ ./... errorformat=%f:%l\ %m
+au BufWritePre *.go Fmt
+filetype plugin indent on
+
+
+"--------
+"  misc
+"--------
+set laststatus=2
