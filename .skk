@@ -32,3 +32,4 @@
 		     skk-auto-save-jisyo-interval
 		     'skk-auto-save-jisyo)
 ;; (cancel-function-timers 'skk-auto-save-jisyo)
+(setq skk-kakutei-key "\C-o")
