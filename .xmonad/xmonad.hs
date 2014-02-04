@@ -92,7 +92,9 @@ main = do
   spawn "dropbox start"
   spawn "feh --bg-scale .bg"
   spawn "fcitx"
+  spawn "xscreensaver -nosplash"
   xmproc <- spawnPipe "xmobar"
+
   xmonad $ defaultConfig
       { manageHook = manageDocks <+> manageHook defaultConfig
       , layoutHook = avoidStruts $ layoutHook defaultConfig

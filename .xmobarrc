@@ -8,9 +8,9 @@ Config { font = "xft:Ricty:pixelsize=12:bold"
                     , Run Swap [] 10
                     , Run Date "%Y/%m/%d %a %k:%M" "date" 10
                     , Run Battery 
-                      [ "-t", "<watts>, <left>%/<timeleft>"]
+                      [ "-t", "Bat: <left>%/<timeleft>"]
                       10
-                    , Run Com "dropbox" ["status"] "dropbox" 60
+                    , Run Com "dropbox" ["status"] "dropbox" 120
                     , Run StdinReader
                     ]
        , sepChar = "%"

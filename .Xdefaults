@@ -32,3 +32,9 @@ URxvt*depth:	     32
 !  Emacs  !
 !*********!
 emacs*font:	     Ricty:size=16:spacing=0
+
+!****************!
+!  xscreensaver  !
+!****************!
+xscreensaver.newLoginCommand: lxdm -c USER_SWITCH
+
