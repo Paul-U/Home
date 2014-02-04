@@ -1,5 +1,9 @@
+set encoding=utf-8
 set fileencoding=japan
 set fileencodings=utf-8,euc-jp,iso-20220jp,cp932
+set fileformats=unix,dos,mac
+setl fenc=utf-8
+setl ff=unix
 set number
 syntax on
 
