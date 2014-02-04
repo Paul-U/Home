@@ -90,7 +90,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 main = do
   spawn "xcompmgr"
   spawn "dropbox start"
-  spawn "feh --bg-scale .bg"
+  spawn "feh --bg-fill .bg"
   spawn "fcitx"
   spawn "xscreensaver -nosplash"
   xmproc <- spawnPipe "xmobar"
