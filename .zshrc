@@ -19,9 +19,9 @@ setopt hist_reduce_blanks
 
 function tmuxx(){
 	if tmux has; then
-		exec tmux attach-session
+		tmux attach-session
 	else
-		exec tmux
+		tmux
 	fi
 }
 
