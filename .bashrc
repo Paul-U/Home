@@ -3,7 +3,7 @@
 export PS1="\w $ "
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
-alias ls="ls -lh --show-control-char --color=auto"
+alias ls="ls -lh --show-control-char --color=auto --group-directories-first"
 alias la="ls -lha --show-control-char --color=auto"
 alias l.="ls -dlh .* --show-control-char --color=auto"
 alias l="\ls"

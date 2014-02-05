@@ -17,11 +17,11 @@ setopt hist_reduce_blanks
 
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
-if [ "$TMUX" = "" ] && [ "$EMACS" = "" ] && [ "$SSH_TTY" = "" ]
-then
+function tmuxx(){
 	if tmux has; then
 		exec tmux attach-session
 	else
 		exec tmux
 	fi
-fi
+}
+
