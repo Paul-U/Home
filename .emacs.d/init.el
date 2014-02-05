@@ -30,18 +30,26 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/init.d")
+
+(when (window-system)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(custom-enabled-themes (quote (tango-dark)))))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (tango-dark)))
- '(w3m-use-japanese-menu t)
- '(w3m-use-toolbar nil))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-(put 'erase-buffer 'disabled nil)
+ '(org-document-info ((t (:foreground "cyan"))))
+ '(org-document-title ((t (:foreground "cyan" :weight bold)))))

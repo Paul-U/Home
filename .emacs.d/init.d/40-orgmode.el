@@ -49,13 +49,14 @@
 	     ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
 	   )
      (setq org-latex-classes nil)
+     (setq org-latex-with-hyperref nil)
      (add-to-list 'org-latex-classes
 		  (append
 		   (list
 		    "jsarticle"
 		    (concat
 		     "\\documentclass[a4j,11pt]{jsarticle}\n"
-		     "[NO-DEFAULT-PACKAGES][PACKAGES][NO-EXTRA]"
+		     "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
 		     ))
 		   simple-latex-structure
 		   ))
