@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec /usr/bin/emacs -Q -l ~/.emacs.d/load-path.el -l ~/.emacs.d/init.d/00-init.el $@
