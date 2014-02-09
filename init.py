@@ -2,6 +2,7 @@
 
 import os;
 import re;
+from stat import *
 
 foo=lambda s:os.path.abspath(os.path.normpath(s))
 
@@ -39,8 +40,6 @@ for root,fname in fnames:
     else:
         pass;
 
-from stat import *;
-
 scriptname=os.path.join(os.getenv("HOME"),"bin","add-dotfiles-repos");
 with open(scriptname, "w") as of:
     of.write(open("add-dotfiles-repos").read().format(cwd=os.getcwd()));
@@ -49,4 +48,6 @@ os.chmod(scriptname,
 
 for root,dirs,fnames in os.walk("init.d"):
     for fname in fnames:
-        os.system(root+"/"+fname)
+        f = root+"/"+fname
+        if os.stat(f).st_mode & S_IXUSR:
+            os.system(root+"/"+fname)
