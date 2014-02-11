@@ -124,6 +124,6 @@ main = do
       , borderWidth        = 4
       , normalBorderColor  = "#00000"
       , focusedBorderColor = "#6666cc"
-      , modMask            = mod4Mask
+      , modMask            = mod3Mask
       , keys               = myKeys
       }
