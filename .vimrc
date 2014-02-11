@@ -22,7 +22,7 @@ call neobundle#rc(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 
-NeoBundle 'tyru/skk.vim'
+NeoBundle 'tyru/eskk.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
@@ -43,6 +43,12 @@ let skk_egg_like_newline = 1
 let skk_show_annotation = 1
 let skk_use_face = 1
 
+"------------
+"  eskk.vim
+"------------
+let g:eskk#directory = "~/.eskk"
+let g:eskk#dictionary = { 'path': "~/.skk-jisyo", 'sorted': 0, 'encoding': 'euc-jp'}
+let g:eskk#large_dictionary = { 'path': "~/.skk.d/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 
 "----------
 "  golang
