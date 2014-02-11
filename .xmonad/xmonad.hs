@@ -21,6 +21,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    , ((modm,               xK_g     ), goToSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14"})
+    , ((modm,               xK_s     ), 
+      spawnSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14:bold"}
+      ["urxvt","emacs","gvim","midori","pcmanfm","keepass","firefox","qgit",
+       "","","","",""])
  
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
