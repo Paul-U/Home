@@ -8,9 +8,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
 import XMonad.Actions.Promote
 import XMonad.Util.EZConfig
-import XMonad.Layout.Magnifier
-import XMonad.Layout.Grid
-import XMonad.Layout.NoBorders
 import XMonad.Actions.GridSelect
 
 -- MyKeyBind
@@ -97,14 +94,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-
-myLayout = magnifiercz 1.5 $ withBorder 1 (tiled ||| Mirror tiled ||| Grid) ||| Full
-    where
-      tiled = Tall nmaster delta ratio
-      nmaster = 1
-      ratio = 1/2
-      delta = 3/100
-
 main = do
   spawn "xcompmgr"
   spawn "dropbox start"
@@ -115,7 +104,7 @@ main = do
 
   xmonad $ defaultConfig
       { manageHook = manageDocks <+> manageHook defaultConfig
-      , layoutHook = avoidStruts $ myLayout
+      , layoutHook = avoidStruts $ layoutHook defaultConfig
       , logHook = dynamicLogWithPP $ xmobarPP
                       { ppOutput = hPutStrLn xmproc
                       , ppTitle = xmobarColor "orange" "" . shorten 50
