@@ -66,10 +66,17 @@ nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 "-------------
 let g:lightline = {
 	\ 'active': {
+	\ 	'left': [ ['mode', 'eskk', 'paste'],
+	\                 ['readonly', 'filename', 'modified'] ]
+	\ },
+	\ 'component_function': {
+	\     'eskk': 'MyEskkStatus'
 	\ },
 	\}
+function! MyEskkStatus()
+	return eskk#statusline()
+endfunction
 set laststatus=2
-set t_Co=256
 
 "--------
 "  misc
