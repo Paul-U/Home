@@ -44,8 +44,8 @@ NeoBundleCheck
 "------------
 "  eskk.vim
 "------------
-let g:eskk#directory = "~/.eskk"
-let g:eskk#dictionary = { 'path': "~/.skk-jisyo", 'sorted': 0, 'encoding': 'euc-jp'}
+let g:eskk#directory = "~/.skk.d/eskk"
+let g:eskk#dictionary = { 'path': "~/.skk.d/eskk/eskk-jisyo", 'sorted': 0, 'encoding': 'utf-8'}
 let g:eskk#large_dictionary = { 'path': "~/.skk.d/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 
 "----------
@@ -79,12 +79,9 @@ let g:lightline = {
 	\                 ['readonly', 'filename', 'modified'] ]
 	\ },
 	\ 'component_function': {
-	\     'eskk': 'MyEskkStatus'
+	\     'eskk': 'eskk#statusline'
 	\ },
 	\}
-function! MyEskkStatus()
-	return eskk#statusline()
-endfunction
 set laststatus=2
 
 "--------
