@@ -61,10 +61,18 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 100
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
+"-------------
+"  lightline
+"-------------
+let g:lightline = {
+	\ 'active': {
+	\ },
+	\}
+set laststatus=2
+set t_Co=256
 
 "--------
 "  misc
 "--------
-set laststatus=2
 inoremap <C-c> <Esc>
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
