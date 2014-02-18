@@ -8,8 +8,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
 import XMonad.Actions.Promote
 import XMonad.Util.EZConfig
-import XMonad.Layout.Magnifier
- 
+import XMonad.Actions.GridSelect
+
 -- MyKeyBind
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
@@ -21,6 +21,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    , ((modm,               xK_g     ), goToSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14"})
+    , ((modm,               xK_s     ), 
+      spawnSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14:bold"}
+      ["urxvt","emacs","gvim","midori","pcmanfm","keepass","firefox","qgit",
+       "","","","",""])
  
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -87,6 +93,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
 main = do
   spawn "xcompmgr"
   spawn "dropbox start"
@@ -106,6 +113,6 @@ main = do
       , borderWidth        = 4
       , normalBorderColor  = "#00000"
       , focusedBorderColor = "#6666cc"
-      , modMask            = mod4Mask
+      , modMask            = mod3Mask
       , keys               = myKeys
       }

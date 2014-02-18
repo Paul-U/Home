@@ -13,6 +13,7 @@ alias e="~/bin/emacs-nw"
 export GOPATH=$HOME/.local/go
 
 export USERID=`id -u`
+export EDITOR="vim"
 
 if [ -e $HOME/.rvm ]; then
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

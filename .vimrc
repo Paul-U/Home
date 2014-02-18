@@ -21,28 +21,32 @@ call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
-NeoBundle 'tyru/skk.vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'tyru/eskk.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kien/ctrlp.vim'
 
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
 filetype plugin indent on
 
 NeoBundleCheck
 
-"-----------
-"  skk.vim
-"-----------
-let skk_jisyo = '~/.skk-jisyo'
-let skk_large_jisyo = '~/.skk.d/SKK-JISYO.L'
-let skk_auto_save_jisyo = 1
-let skk_keep_state = 0
-let skk_egg_like_newline = 1
-let skk_show_annotation = 1
-let skk_use_face = 1
-
+"------------
+"  eskk.vim
+"------------
+let g:eskk#directory = "~/.skk.d/eskk"
+let g:eskk#dictionary = { 'path': "~/.skk.d/eskk/eskk-jisyo", 'sorted': 0, 'encoding': 'utf-8'}
+let g:eskk#large_dictionary = { 'path': "~/.skk.d/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 
 "----------
 "  golang
@@ -66,10 +70,22 @@ nmap <C-n> <Plug>(yankround-next)
 let g:yankround_max_history = 100
 nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 
+"-------------
+"  lightline
+"-------------
+let g:lightline = {
+	\ 'active': {
+	\ 	'left': [ ['mode', 'eskk', 'paste'],
+	\                 ['readonly', 'filename', 'modified'] ]
+	\ },
+	\ 'component_function': {
+	\     'eskk': 'eskk#statusline'
+	\ },
+	\}
+set laststatus=2
 
 "--------
 "  misc
 "--------
-set laststatus=2
 inoremap <C-c> <Esc>
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
