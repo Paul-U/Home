@@ -104,6 +104,8 @@
        )
 
      (load "graphviz-dot-mode" 'noerror)
+
+     (load "ox-md" 'noerror)
      (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t) (dot . t) (R . t)))
