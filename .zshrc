@@ -15,6 +15,8 @@ setopt hist_ignore_all_dups
 setopt hist_verify
 setopt hist_reduce_blanks
 
+bindkey -e
+
 [ -e "${HOME}/.ssh/agent-env" ] && source "${HOME}/.ssh/agent-env"
 
 function tmuxx(){

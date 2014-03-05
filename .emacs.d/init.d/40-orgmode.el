@@ -33,7 +33,7 @@
    (progn
      ;; LaTeX Export Settings
      (require 'ox-latex)
-     (setq org-latex-pdf-process '("platex %b -shell-escape" "platex %b" "dvipdfmx %b"))
+     (setq org-latex-pdf-process '("uplatex %b" "uplatex %b" "dvipdfmx %b"))
 
      (setq org-latex-coding-system 'utf-8)
      (setq org-latex-date-format "%Y-%m-%d")
@@ -55,7 +55,7 @@
 		   (list
 		    "jsarticle"
 		    (concat
-		     "\\documentclass[a4j,11pt]{jsarticle}\n"
+		     "\\documentclass[a4j,11pt,uplatex]{jsarticle}\n"
 		     "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
 		     ))
 		   simple-latex-structure
@@ -65,7 +65,7 @@
 		   (list
 		    "resume" 
 		    (concat
-		     "\\documentclass[a4j,11pt]{jsarticle}\n"
+		     "\\documentclass[a4j,11pt,uplatex]{jsarticle}\n"
 		     "\\usepackage{resume}"
 		     "[NO-DEFAULT-PACKAGES][PACKAGES][EXTRA]"
 		     ))
@@ -76,7 +76,7 @@
 		   (list
 		    "abstract" 
 		    (concat
-		     "\\documentclass[a4j,10pt,twocolumn,oneside]{jsarticle}\n"
+		     "\\documentclass[a4j,10pt,twocolumn,oneside,uplatex]{jsarticle}\n"
 		     "\\usepackage{thesis_abstract}\n"
 		     "[NO-DEFAULT-PACKAGES]\n[PACKAGES]\n[EXTRA]"
 		     ))
@@ -85,10 +85,11 @@
      (add-to-list 'org-latex-classes
 		  (append
 		   (list
-		    "jsbook"
+		    "thesis"
 		    (concat
-		     "\\documentclass[a4j,12pt,oneside]{jsbook}\n"
-		     "[NO-DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
+		     "\\documentclass[a4j,12pt,oneside,uplatex,report]{jsbook}\n"
+		     "\\usepackage{thesis}\n"
+		     "[DEFAULT-PACKAGES] [PACKAGES] [EXTRA]"
 		     )
 		    )
 		   '(("\\chapter{%s}" . "\\chapter*{%s}"))
@@ -103,6 +104,8 @@
        )
 
      (load "graphviz-dot-mode" 'noerror)
+
+     (load "ox-md" 'noerror)
      (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t) (dot . t) (R . t)))

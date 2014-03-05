@@ -13,8 +13,9 @@
 
 (defvar installing-package-list
   '(
-    anything init-loader w3m csv-mode undo-tree
-	     xml-rpc metaweblog migemo web-mode egg
+    init-loader w3m csv-mode undo-tree auto-complete
+		ess go-mode scss-mode graphviz-dot-mode
+		migemo web-mode markdown-mode markdown-mode+ helm
     ))
 
 (let ((not-installed (loop for x in installing-package-list
