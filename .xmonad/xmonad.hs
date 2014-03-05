@@ -9,6 +9,7 @@ import XMonad.Util.Run
 import XMonad.Actions.Promote
 import XMonad.Util.EZConfig
 import XMonad.Actions.GridSelect
+import Apps
 
 -- MyKeyBind
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -25,8 +26,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_g     ), goToSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14"})
     , ((modm,               xK_s     ), 
       spawnSelected defaultGSConfig{gs_font="xft:Ricty:pixelsize=14:bold"}
-      ["urxvt","emacs","gvim","midori","pcmanfm","keepass","firefox","qgit",
-       "","","","",""])
+      apps)
  
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
