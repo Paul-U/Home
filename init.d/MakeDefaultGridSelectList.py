@@ -23,6 +23,7 @@ if os.path.exists(filepath):
         elif re.match("^[Nn][Oo]?$",ans):
             sys.exit(0)
 
+os.system("mkdir -p "+os.path.dirname(filepath))
 with open(filepath,"w") as of:
     of.write(haskell)
 
