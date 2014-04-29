@@ -9,6 +9,7 @@ import XMonad.Util.Run
 import XMonad.Actions.Promote
 import XMonad.Util.EZConfig
 import XMonad.Actions.GridSelect
+import Graphics.X11.ExtraTypes.XF86
 import Apps
 
 -- MyKeyBind
@@ -83,6 +84,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    -- Volume Control
+    , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 5+")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 5-")
+
+    -- Screenshot
+    , ((modm , xK_Print ), spawn "scrot screen_%Y-%m-%d-%H-%M-%S.png -d 1")
     ]
     ++
     [((m .|. modm, k), windows $ f i)
@@ -98,8 +107,9 @@ main = do
   spawn "xcompmgr"
   spawn "dropbox start"
   spawn "feh --bg-fill .bg"
-  spawn "fcitx"
   spawn "xscreensaver -nosplash"
+  spawn "volwheel"
+  spawn "stalonetray"
   xmproc <- spawnPipe "xmobar"
 
   xmonad $ defaultConfig
