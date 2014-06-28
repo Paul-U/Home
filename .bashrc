@@ -11,6 +11,7 @@ alias open="xdg-open"
 alias e="~/bin/emacs-nw"
 
 export GOPATH=$HOME/.local/go
+export PATH=$PATH:$GOPATH/bin
 
 export USERID=`id -u`
 export EDITOR="vim"
