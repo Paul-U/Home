@@ -3,6 +3,13 @@
 import os;
 import re;
 from stat import *
+import argparse
+
+parser = argparse.ArgumentParser(description="Initialize dotfiles for your $HOME")
+parser.add_argument("-y", dest="auto", action="store_const", const=True, default=False,
+                    help="Automatically Overwrite, even if the same named file exists.")
+
+args=parser.parse_args()
 
 foo=lambda s:os.path.abspath(os.path.normpath(s))
 
@@ -26,12 +33,17 @@ for root,fname in fnames:
             if os.path.samefile(base,target):
                 continue;
             while True:
-                ans = input("%s exists. Replace it? [Y/n] "%(target));
-                if re.match("^[Yy]([Ee][Ss])?$",ans):
+                if args.auto:
+                    ans = True
+                else:
+                    input_text = input("%s exists. Replace it? [Y/n] "%(target));
+                    if re.match("^[Nn][Oo]?$",input_text):
+                        raise Exception;
+                    ans = re.match("^[Yy]([Ee][Ss])?$",input_text)
+                    
+                if ans:
                     os.remove(target);
                     break;
-                elif re.match("^[Nn][Oo]?$",ans):
-                    raise Exception;
         os.symlink(base,target);
         print("make symbolic link from %s to %s"%
                 (base,target))
