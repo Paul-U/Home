@@ -11,6 +11,9 @@ parser.add_argument("-y", dest="auto", action="store_const", const=True, default
 
 args=parser.parse_args()
 
+if args.auto:
+    print("running in automatic mode.")
+
 foo=lambda s:os.path.abspath(os.path.normpath(s))
 
 fnames = [(root[2:],fname)
