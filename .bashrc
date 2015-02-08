@@ -1,12 +1,22 @@
 #!/bin/bash
 
-export PS1="\w $ "
+export PS1="\u@\H $ "
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
-alias ls="ls -lh --show-control-char --color=auto --group-directories-first"
-alias la="ls -lha --show-control-char --color=auto"
-alias l.="ls -dlh .* --show-control-char --color=auto"
-alias l="\ls"
+case "${OSTYPE}" in
+darwin*)
+  alias ls="ls -Glh"
+  alias la="ls -Glha"
+  alias l.="ls -Gdlh .*"
+  alias l="\ls"
+  ;;
+linux*)
+  alias ls="ls -lh --color=auto --group-directories-first"
+  alias la="ls -lha-char --color=auto"
+  alias l.="ls -dlh .* --show-control-char --color=auto"
+  alias l="\ls"
+  ;;
+esac
 alias open="xdg-open"
 alias e="~/bin/emacs-nw"
 
