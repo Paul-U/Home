@@ -1,38 +1,0 @@
-
-00-init.el,29
-(defface hlline-face90,2611
-
-00-skk.el,55
-(define-key global-map 8,202
-(define-key  (kbd 9,253
-
-10-color.el,23
-(deftheme molokai3,53
-
-20-anything.el,82
-(defvar anything-c-imenu-delimiter 17,521
-(defvar anything-c-source-imenu18,561
-
-40-orgmode.el,92
-(define-key global-map 9,104
-(define-key global-map 10,152
-(define-key global-map 11,196
-
-40-yatex.el,87
-(defun sumatrapdf-forward-search 54,4687
-(defun fwdsumatrapdf-forward-search 81,5550
-
-windows-init.el,22
-(defun mintty 12,255
-
-40-markdown.el,0
-
-30-w3m.el,0
-
-30-evernote.el,0
-
-15-migemo.el,0
-
-10-font.el,0
-
-00-session.el,0
