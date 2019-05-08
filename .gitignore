@@ -1,0 +1,25 @@
+# Ignore everything by default.OB
+*
+!.gitignore
+
+# Bash configs (.bashrc, .bash_profile, ...)
+!.bash*
+
+# Zsh configs
+!.zshrc
+!.zsh.d
+!.zsh.d/*
+
+# tmux config
+!.tmux.conf
+
+# Emacs
+!.emacs.d
+!.emacs.d/init.el
+
+# Vim
+!.vimrc
+!.vim
+!.vim/rc
+!.vim/rc/**
+

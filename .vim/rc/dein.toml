@@ -1,0 +1,21 @@
+[[plugins]]
+repo =  'tyru/eskk.vim'
+[[plugins]]
+repo =  'itchyny/lightline.vim'
+[[plugins]]
+repo =  'osyo-manga/vim-over'
+[[plugins]]
+repo =  'kien/ctrlp.vim'
+[[plugins]]
+repo =  'plasticboy/vim-markdown'
+[[plugins]]
+repo =  'vim-scripts/nginx.vim'
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+hook_add = '''
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#show_call_signatures = 2
+  autocmd FileType python setlocal completeopt-=preview
+'''
+[[plugins]]
+repo = 'udalov/kotlin-vim'
