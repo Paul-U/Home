@@ -25,6 +25,10 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+if !isdirectory("~/.vim/bundles/repos/github.com/Shougo/dein.vim")
+  call system("bash <(curl -s https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ~/.vim/bundles")
+endif
+
 " Required:
 set runtimepath+=/home/kouzukek/.vim/bundles/repos/github.com/Shougo/dein.vim
 
