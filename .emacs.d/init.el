@@ -1,28 +1,37 @@
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 (require 'package)
 
 ;; MELPAを追加
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (wanderlust web-mode groovy-mode magit-gitflow company-jedi company recentf-ext helm magit pandoc-mode pandoc w3m markdown-mode ddskk))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(package-initialize)
+
+(require 'cl)
+
+(defvar installing-package-list
+  '(
+    ;; ここに使っているパッケージを書く。
+    web-mode
+    groovy-mode
+    magit-gitflow
+    company-jedi
+    company
+    recentf-ext
+    helm
+    magit
+    pandoc-mode
+    pandoc
+    w3m
+    markdown-mode
+    ddskk
+    ))
+
+(let ((not-installed (loop for x in installing-package-list
+                            when (not (package-installed-p x))
+                            collect x)))
+  (when not-installed
+    (package-refresh-contents)
+    (dolist (pkg not-installed)
+        (package-install pkg))))
 
 (load-theme 'tango-dark t)
 
@@ -201,11 +210,3 @@
 (setq web-mode-markup-indent-offset 4)
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-css-indent-offset 4)
-
-(require 'install-elisp)
-(setq install-elisp-repository-directory "~/.emacs.d/site-lisp/")
-
-(require 'vbnet-mode)
-(add-to-list 'auto-mode-alist '("\\.vbs$" . vbnet-mode))
-(add-to-list 'auto-mode-alist '("\\.hta$" . vbnet-mode))
-
