@@ -30,17 +30,17 @@ if !isdirectory("~/.vim/bundles/repos/github.com/Shougo/dein.vim")
 endif
 
 " Required:
-set runtimepath+=/home/kouzukek/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/kouzukek/.vim/bundles')
-  call dein#begin('/home/kouzukek/.vim/bundles')
+if dein#load_state('~/.vim/bundles')
+  call dein#begin('~/.vim/bundles')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/kouzukek/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
-  call dein#load_toml('/home/kouzukek/.vim/rc/dein.toml')
+  call dein#load_toml('~/.vim/rc/dein.toml')
   " Required:
   call dein#end()
   call dein#save_state()
